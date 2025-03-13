@@ -1,0 +1,11 @@
+default:
+  cache_timeout: 3600
+  max_cache_size: 100000000
+  nasa_api_key: lAo9BNvOcYNL2SAzvn3X9kDZN4h2xvRygbxjckDR
+development:
+  debug: true
+  inherit: default
+production:
+  cache_timeout: 86400
+  debug: false
+  inherit: default

@@ -1,0 +1,12 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+.DS_Store
+.env
+renv/library
+renv/local
+renv/lock
+renv/python
+renv/staging
