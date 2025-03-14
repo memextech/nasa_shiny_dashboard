@@ -1,0 +1,10 @@
+name: space-explorer
+title:
+username: memextech
+account: memextech
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 14250169
+bundleId: 9945979
+url: https://memextech.shinyapps.io/space-explorer/
+version: 1

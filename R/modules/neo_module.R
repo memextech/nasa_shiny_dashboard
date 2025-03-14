@@ -60,31 +60,13 @@ neoTrackerServer <- function(id, config) {
     neo_data <- reactive({
       req(input$date_range)
       
-      # Cache key based on date range
-      cache_key <- paste0(
-        "neo_",
-        format(input$date_range[1], "%Y%m%d"),
-        "_",
-        format(input$date_range[2], "%Y%m%d")
-      )
-      
-      # Get and cache API response
-      data <- cache_api_response(
-        key = cache_key,
-        expr = substitute(
-          nasa_api_get(
-            endpoint = "/neo/rest/v1/feed",
-            params = list(
-              start_date = format_nasa_date(date1),
-              end_date = format_nasa_date(date2)
-            )
-          ),
-          list(
-            date1 = input$date_range[1],
-            date2 = input$date_range[2]
-          )
-        ),
-        timeout = config$cache_timeout
+      # Get API response
+      data <- nasa_api_get(
+        endpoint = "/neo/rest/v1/feed",
+        params = list(
+          start_date = format_nasa_date(input$date_range[1]),
+          end_date = format_nasa_date(input$date_range[2])
+        )
       )
       
       # Process data

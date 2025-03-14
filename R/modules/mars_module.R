@@ -65,30 +65,12 @@ marsRoverServer <- function(id, config) {
     mars_photos <- reactive({
       req(input$rover, input$date)
       
-      # Cache key based on rover and date
-      cache_key <- paste0(
-        "mars_",
-        tolower(input$rover),
-        "_",
-        format(input$date, "%Y%m%d")
-      )
-      
-      # Get and cache API response
-      data <- cache_api_response(
-        key = cache_key,
-        expr = substitute(
-          nasa_api_get(
-            endpoint = paste0("/mars-photos/api/v1/rovers/", tolower(rover), "/photos"),
-            params = list(
-              earth_date = format_nasa_date(date)
-            )
-          ),
-          list(
-            rover = input$rover,
-            date = input$date
-          )
-        ),
-        timeout = config$cache_timeout
+      # Get API response
+      data <- nasa_api_get(
+        endpoint = paste0("/mars-photos/api/v1/rovers/", tolower(input$rover), "/photos"),
+        params = list(
+          earth_date = format_nasa_date(input$date)
+        )
       )
       
       # Filter by camera if selected
