@@ -144,27 +144,79 @@ body {
 .preview-content {
     height: 320px;
     position: relative;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     border-radius: 6px;
     overflow: hidden;
+    max-width: 800px;  /* Limit maximum width */
 }
 
 /* Image container */
 .image-container {
-    width: 100%;
-    height: 100%;
     position: relative;
-    background-color: #f8f9fa;
-    border-radius: 6px;
+    width: 100%;
+    padding-top: 66.67%;  /* 3:2 aspect ratio */
+    background-color: #000;
+    border-radius: 4px;
     overflow: hidden;
 }
 
 /* Preview images */
 .preview-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Chart container */
+.chart-container {
+    position: relative;
+    width: 100%;
+    padding-top: 66.67%;  /* 3:2 aspect ratio */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.chart-container > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Map container */
+.map-container {
+    position: relative;
+    width: 100%;
+    padding-top: 66.67%;  /* 3:2 aspect ratio */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.map-container .leaflet-container {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Maintain aspect ratio on larger screens */
+@media (min-width: 1200px) {
+    .preview-content {
+        max-width: 1000px;
+    }
+    
+    .image-container,
+    .chart-container,
+    .map-container {
+        max-width: 1000px;
+    }
 }
 
 /* Preview text */
