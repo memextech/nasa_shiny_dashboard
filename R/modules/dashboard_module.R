@@ -244,29 +244,51 @@ dashboardServer <- function(id, config) {
       df$date <- as.Date(df$date)
       
       # Create plot with specific dimensions
-      plot_ly(df, height = 300) %>%
+      plot_ly(df, height = 320) %>%
         add_trace(
           x = ~date,
           y = ~count,
           name = "Total NEOs",
           type = "scatter",
-          mode = "lines+markers"
+          mode = "lines+markers",
+          line = list(color = '#1a237e', width = 2),
+          marker = list(color = '#1a237e', size = 6)
         ) %>%
         add_trace(
           x = ~date,
           y = ~hazardous,
           name = "Hazardous",
           type = "scatter",
-          mode = "lines+markers"
+          mode = "lines+markers",
+          line = list(color = '#d32f2f', width = 2),
+          marker = list(color = '#d32f2f', size = 6)
         ) %>%
         layout(
           showlegend = TRUE,
-          margin = list(l = 50, r = 50, t = 30, b = 50),
-          xaxis = list(title = "Date"),
-          yaxis = list(title = "Number of Objects"),
+          legend = list(
+            orientation = "h",
+            xanchor = "center",
+            x = 0.5,
+            y = 1
+          ),
+          margin = list(l = 50, r = 30, t = 40, b = 50),
+          xaxis = list(
+            title = "Date",
+            gridcolor = '#f5f5f5',
+            zerolinecolor = '#f5f5f5'
+          ),
+          yaxis = list(
+            title = "Number of Objects",
+            gridcolor = '#f5f5f5',
+            zerolinecolor = '#f5f5f5'
+          ),
           paper_bgcolor = "rgba(0,0,0,0)",
           plot_bgcolor = "rgba(0,0,0,0)",
-          font = list(color = "#666")
+          font = list(
+            family = "Arial",
+            size = 12,
+            color = "#333"
+          )
         )
     })
     
@@ -280,21 +302,27 @@ dashboardServer <- function(id, config) {
       
       # Create map with dark theme
       div(class = "map-container",
-        leaflet() %>%
+        leaflet(options = leafletOptions(
+          zoomControl = TRUE,
+          minZoom = 2,
+          maxZoom = 8
+        )) %>%
           addProviderTiles("CartoDB.DarkMatter") %>%
-          setView(lng = lng, lat = lat, zoom = 2) %>%
+          setView(lng = lng, lat = lat, zoom = 3) %>%
           addCircleMarkers(
             lng = lng,
             lat = lat,
             radius = 8,
-            color = "#FF4136",
-            fillColor = "#FF4136",
+            color = "#1a237e",
+            fillColor = "#1a237e",
             fillOpacity = 0.8,
             weight = 2,
             popup = paste(
+              "<div style='font-family: Arial; font-size: 12px;'>",
               "<strong>ISS Position</strong><br>",
-              "Latitude:", round(lat, 4), "<br>",
-              "Longitude:", round(lng, 4)
+              "Latitude: ", round(lat, 4), "°<br>",
+              "Longitude: ", round(lng, 4), "°",
+              "</div>"
             )
           )
       )
