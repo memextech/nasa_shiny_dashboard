@@ -142,7 +142,7 @@ body {
 
 /* Content area */
 .preview-content {
-    height: 300px;  /* Fixed height */
+    height: 320px;
     position: relative;
     margin: 0;
     padding: 0;
@@ -152,26 +152,26 @@ body {
 /* Image container */
 .image-container {
     width: 100%;
-    height: 300px;  /* Fixed height */
+    height: 280px;  /* Smaller than container */
     position: relative;
     background-color: #000;
     overflow: hidden;
+    margin: 10px 0;  /* Center in container */
 }
 
 /* Preview images */
 .preview-image {
     width: 100%;
-    height: 300px;  /* Fixed height */
+    height: 100%;  /* Fill container */
     object-fit: cover;
 }
 
 /* Chart and Map containers */
 .chart-container,
 .map-container {
-    height: 300px !important;  /* Fixed height */
+    height: 280px !important;  /* Match image height */
     width: 100% !important;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+    margin: 10px 0;
 }
 
 /* Chart container */
