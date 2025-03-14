@@ -7,47 +7,70 @@
 marsRoverUI <- function(id) {
   ns <- NS(id)
   
-  tagList(
+  fluidPage(
     fluidRow(
-      box(
-        width = 12,
-        title = "Mars Rover Photos",
-        status = "primary",
-        solidHeader = TRUE,
-        
-        # Rover selector
-        selectInput(
-          ns("rover"),
-          "Select Rover:",
-          choices = c("Curiosity", "Opportunity", "Spirit", "Perseverance"),
-          selected = "Curiosity"
-        ),
-        
-        # Date selector
-        dateInput(
-          ns("date"),
-          "Select Date:",
-          value = Sys.Date() - 7,
-          max = Sys.Date()
-        ),
-        
-        # Camera selector
-        selectInput(
-          ns("camera"),
-          "Select Camera:",
-          choices = c("All", "FHAZ", "RHAZ", "NAVCAM", "MAST", "CHEMCAM", "MAHLI", "MARDI"),
-          selected = "All"
-        ),
-        
-        # Stats
-        fluidRow(
-          valueBoxOutput(ns("total_photos_box"), width = 4),
-          valueBoxOutput(ns("sol_box"), width = 4),
-          valueBoxOutput(ns("cameras_box"), width = 4)
-        ),
-        
-        # Photo gallery
-        uiOutput(ns("photo_gallery"))
+      column(12,
+        div(class = "well",
+          h3("Mars Rover Photos"),
+          
+          # Rover selector
+          selectInput(
+            ns("rover"),
+            "Select Rover:",
+            choices = c("Curiosity", "Opportunity", "Spirit", "Perseverance"),
+            selected = "Curiosity"
+          ),
+          
+          # Date selector
+          dateInput(
+            ns("date"),
+            "Select Date:",
+            value = Sys.Date() - 7,
+            max = Sys.Date()
+          ),
+          
+          # Camera selector
+          selectInput(
+            ns("camera"),
+            "Select Camera:",
+            choices = c("All", "FHAZ", "RHAZ", "NAVCAM", "MAST", "CHEMCAM", "MAHLI", "MARDI"),
+            selected = "All"
+          )
+        )
+      )
+    ),
+    
+    # Stats cards
+    fluidRow(
+      column(4,
+        div(class = "well",
+          h4("Total Photos", class = "text-center"),
+          h2(textOutput(ns("total_photos")), class = "text-center"),
+          div(icon("camera"), class = "text-center")
+        )
+      ),
+      column(4,
+        div(class = "well",
+          h4("Mars Sol", class = "text-center"),
+          h2(textOutput(ns("sol")), class = "text-center"),
+          div(icon("sun"), class = "text-center")
+        )
+      ),
+      column(4,
+        div(class = "well",
+          h4("Cameras Used", class = "text-center"),
+          h2(textOutput(ns("cameras")), class = "text-center"),
+          div(icon("video"), class = "text-center")
+        )
+      )
+    ),
+    
+    # Photo gallery
+    fluidRow(
+      column(12,
+        div(class = "well",
+          uiOutput(ns("photo_gallery"))
+        )
       )
     )
   )
@@ -82,46 +105,29 @@ marsRoverServer <- function(id, config) {
       photos
     })
     
-    # Value boxes
-    output$total_photos_box <- renderValueBox({
+    # Stats outputs
+    output$total_photos <- renderText({
       photos <- mars_photos()
-      valueBox(
-        length(photos),
-        "Total Photos",
-        icon = icon("camera"),
-        color = "blue"
-      )
+      length(photos)
     })
     
-    output$sol_box <- renderValueBox({
+    output$sol <- renderText({
       photos <- mars_photos()
       if (length(photos) > 0) {
-        sol <- photos[[1]]$sol
+        photos[[1]]$sol
       } else {
-        sol <- "N/A"
+        "N/A"
       }
-      valueBox(
-        sol,
-        "Mars Sol",
-        icon = icon("sun"),
-        color = "yellow"
-      )
     })
     
-    output$cameras_box <- renderValueBox({
+    output$cameras <- renderText({
       photos <- mars_photos()
       if (length(photos) > 0) {
         cameras <- unique(sapply(photos, function(x) x$camera$name))
-        n_cameras <- length(cameras)
+        length(cameras)
       } else {
-        n_cameras <- 0
+        0
       }
-      valueBox(
-        n_cameras,
-        "Cameras Used",
-        icon = icon("video"),
-        color = "green"
-      )
     })
     
     # Photo gallery
@@ -134,19 +140,20 @@ marsRoverServer <- function(id, config) {
       
       # Create a grid of photos
       photo_grid <- lapply(photos, function(photo) {
-        box(
-          width = 4,
-          tags$img(
-            src = photo$img_src,
-            class = "img-responsive",
-            style = "width: 100%; height: auto;"
-          ),
-          p(
-            strong("Camera: "), photo$camera$full_name,
-            br(),
-            strong("Earth Date: "), photo$earth_date,
-            br(),
-            strong("Sol: "), photo$sol
+        column(4,
+          div(class = "well",
+            tags$img(
+              src = photo$img_src,
+              class = "img-responsive",
+              style = "width: 100%; height: auto;"
+            ),
+            p(
+              strong("Camera: "), photo$camera$full_name,
+              br(),
+              strong("Earth Date: "), photo$earth_date,
+              br(),
+              strong("Sol: "), photo$sol
+            )
           )
         )
       })

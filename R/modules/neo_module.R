@@ -7,42 +7,71 @@
 neoTrackerUI <- function(id) {
   ns <- NS(id)
   
-  tagList(
+  fluidPage(
     fluidRow(
-      box(
-        width = 12,
-        title = "Near-Earth Objects Tracker",
-        status = "primary",
-        solidHeader = TRUE,
-        
-        # Date range selector
-        dateRangeInput(
-          ns("date_range"),
-          "Select Date Range:",
-          start = Sys.Date() - 7,
-          end = Sys.Date(),
-          max = Sys.Date()
-        ),
-        
-        # Hazard filter
-        checkboxInput(
-          ns("hazardous_only"),
-          "Show potentially hazardous asteroids only",
-          FALSE
-        ),
-        
-        # Stats boxes
-        fluidRow(
-          valueBoxOutput(ns("total_neo_box"), width = 4),
-          valueBoxOutput(ns("hazardous_box"), width = 4),
-          valueBoxOutput(ns("closest_box"), width = 4)
-        ),
-        
-        # NEO data table
-        DT::dataTableOutput(ns("neo_table")),
-        
-        # Plot
-        plotlyOutput(ns("neo_plot"))
+      column(12,
+        div(class = "well",
+          h3("Near-Earth Objects Tracker"),
+          
+          # Date range selector
+          dateRangeInput(
+            ns("date_range"),
+            "Select Date Range:",
+            start = Sys.Date() - 7,
+            end = Sys.Date(),
+            max = Sys.Date()
+          ),
+          
+          # Hazard filter
+          checkboxInput(
+            ns("hazardous_only"),
+            "Show potentially hazardous asteroids only",
+            FALSE
+          )
+        )
+      )
+    ),
+    
+    # Stats cards
+    fluidRow(
+      column(4,
+        div(class = "well",
+          h4("Total NEOs", class = "text-center"),
+          h2(textOutput(ns("total_neo_count")), class = "text-center"),
+          div(icon("meteor"), class = "text-center")
+        )
+      ),
+      column(4,
+        div(class = "well",
+          h4("Hazardous", class = "text-center"),
+          h2(textOutput(ns("hazardous_count")), class = "text-center"),
+          div(icon("exclamation-triangle"), class = "text-center")
+        )
+      ),
+      column(4,
+        div(class = "well",
+          h4("Closest Approach", class = "text-center"),
+          h2(textOutput(ns("closest_distance")), class = "text-center"),
+          div(icon("ruler"), class = "text-center")
+        )
+      )
+    ),
+    
+    fluidRow(
+      column(12,
+        div(class = "well",
+          # NEO data table
+          DT::dataTableOutput(ns("neo_table"))
+        )
+      )
+    ),
+    
+    fluidRow(
+      column(12,
+        div(class = "well",
+          # Plot
+          plotlyOutput(ns("neo_plot"))
+        )
       )
     )
   )
@@ -101,35 +130,20 @@ neoTrackerServer <- function(id, config) {
       data
     })
     
-    # Value boxes
-    output$total_neo_box <- renderValueBox({
+    # Stats outputs
+    output$total_neo_count <- renderText({
       data <- filtered_data()
-      valueBox(
-        nrow(data),
-        "Total NEOs",
-        icon = icon("meteor"),
-        color = "blue"
-      )
+      nrow(data)
     })
     
-    output$hazardous_box <- renderValueBox({
+    output$hazardous_count <- renderText({
       data <- filtered_data()
-      valueBox(
-        sum(data$hazardous),
-        "Hazardous",
-        icon = icon("exclamation-triangle"),
-        color = "red"
-      )
+      sum(data$hazardous)
     })
     
-    output$closest_box <- renderValueBox({
+    output$closest_distance <- renderText({
       data <- filtered_data()
-      valueBox(
-        paste(round(min(data$miss_distance) / 1000, 2), "km"),
-        "Closest Approach",
-        icon = icon("ruler"),
-        color = "yellow"
-      )
+      paste(round(min(data$miss_distance) / 1000, 2), "km")
     })
     
     # Data table

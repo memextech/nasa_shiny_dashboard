@@ -7,47 +7,66 @@
 issTrackerUI <- function(id) {
   ns <- NS(id)
   
-  tagList(
+  fluidPage(
+    # Auto-update toggle
     fluidRow(
-      box(
-        width = 12,
-        title = "International Space Station Tracker",
-        status = "primary",
-        solidHeader = TRUE,
-        
-        # Auto-update toggle
-        checkboxInput(
-          ns("auto_update"),
-          "Auto-update position (every 5 seconds)",
-          TRUE
-        ),
-        
-        # Stats boxes
-        fluidRow(
-          valueBoxOutput(ns("latitude_box"), width = 4),
-          valueBoxOutput(ns("longitude_box"), width = 4),
-          valueBoxOutput(ns("velocity_box"), width = 4)
-        ),
-        
-        # Map
-        leafletOutput(ns("map"), height = "600px"),
-        
-        # Additional info
-        fluidRow(
-          box(
-            width = 6,
-            title = "Current Location",
-            status = "info",
-            solidHeader = TRUE,
-            textOutput(ns("location_info"))
-          ),
-          box(
-            width = 6,
-            title = "Next Pass Predictions",
-            status = "info",
-            solidHeader = TRUE,
-            textOutput(ns("pass_predictions"))
+      column(12,
+        div(class = "well",
+          checkboxInput(
+            ns("auto_update"),
+            "Auto-update position (every 5 seconds)",
+            TRUE
           )
+        )
+      )
+    ),
+    
+    # Stats cards
+    fluidRow(
+      column(4,
+        div(class = "well",
+          h4("Latitude", class = "text-center"),
+          h2(textOutput(ns("latitude")), class = "text-center"),
+          div(icon("location-arrow"), class = "text-center")
+        )
+      ),
+      column(4,
+        div(class = "well",
+          h4("Longitude", class = "text-center"),
+          h2(textOutput(ns("longitude")), class = "text-center"),
+          div(icon("location-arrow"), class = "text-center")
+        )
+      ),
+      column(4,
+        div(class = "well",
+          h4("Orbital Velocity", class = "text-center"),
+          h2(textOutput(ns("velocity")), class = "text-center"),
+          div(icon("tachometer-alt"), class = "text-center")
+        )
+      )
+    ),
+    
+    # Map
+    fluidRow(
+      column(12,
+        div(class = "well",
+          leafletOutput(ns("map"), height = "600px")
+        )
+      )
+    ),
+    
+    # Additional info
+    fluidRow(
+      column(6,
+        div(class = "well",
+          h3("Current Location"),
+          textOutput(ns("location_info"))
+        )
+      ),
+      column(6,
+        div(class = "well",
+          h3("Next Pass Predictions"),
+          textOutput(ns("pass_predictions"))
         )
       )
     )
@@ -83,34 +102,19 @@ issTrackerServer <- function(id, config) {
       )
     })
     
-    # Value boxes
-    output$latitude_box <- renderValueBox({
+    # Stats outputs
+    output$latitude <- renderText({
       pos <- iss_position()
-      valueBox(
-        round(pos$latitude, 4),
-        "Latitude",
-        icon = icon("location-arrow"),
-        color = "blue"
-      )
+      round(pos$latitude, 4)
     })
     
-    output$longitude_box <- renderValueBox({
+    output$longitude <- renderText({
       pos <- iss_position()
-      valueBox(
-        round(pos$longitude, 4),
-        "Longitude",
-        icon = icon("location-arrow"),
-        color = "green"
-      )
+      round(pos$longitude, 4)
     })
     
-    output$velocity_box <- renderValueBox({
-      valueBox(
-        "7.66 km/s",
-        "Orbital Velocity",
-        icon = icon("tachometer-alt"),
-        color = "red"
-      )
+    output$velocity <- renderText({
+      "7.66 km/s"
     })
     
     # Initialize the map

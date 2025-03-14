@@ -7,31 +7,30 @@
 apodUI <- function(id) {
   ns <- NS(id)
   
-  tagList(
+  fluidPage(
     fluidRow(
-      box(
-        width = 12,
-        title = "Astronomy Picture of the Day",
-        status = "primary",
-        solidHeader = TRUE,
-        
-        # Date selector
-        dateInput(
-          ns("date"),
-          "Select Date:",
-          value = Sys.Date(),
-          max = Sys.Date()
-        ),
-        
-        # Debug output
-        verbatimTextOutput(ns("debug")),
-        
-        # Image display
-        uiOutput(ns("image_ui")),
-        
-        # Title and explanation
-        htmlOutput(ns("title")),
-        htmlOutput(ns("explanation"))
+      column(12,
+        div(class = "well",
+          h3("Astronomy Picture of the Day"),
+          
+          # Date selector
+          dateInput(
+            ns("date"),
+            "Select Date:",
+            value = Sys.Date(),
+            max = Sys.Date()
+          ),
+          
+          # Debug output
+          verbatimTextOutput(ns("debug")),
+          
+          # Image display
+          uiOutput(ns("image_ui")),
+          
+          # Title and explanation
+          htmlOutput(ns("title")),
+          htmlOutput(ns("explanation"))
+        )
       )
     )
   )

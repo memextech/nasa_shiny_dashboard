@@ -1,31 +1,59 @@
-/* Custom CSS for Space Exploration Dashboard */
-
-/* Dashboard header */
-.skin-blue .main-header .logo {
-    background-color: #1a237e;
+/* Base styles */
+body {
+    background-color: #f5f5f5;
+    color: #333;
 }
 
-.skin-blue .main-header .logo:hover {
+/* Navigation */
+.navbar {
+    background-color: #1a237e;
+    border: none;
+    border-radius: 0;
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-nav > li > a:hover {
+    color: #e8eaf6;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover {
     background-color: #283593;
-}
-
-/* Sidebar */
-.skin-blue .main-sidebar {
-    background-color: #1a237e;
-}
-
-.skin-blue .sidebar-menu > li.active > a {
-    border-left-color: #e8eaf6;
+    color: #fff;
 }
 
 /* Content */
-.content-wrapper {
-    background-color: #e8eaf6;
+.container-fluid {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.tab-content {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.tab-pane {
+    padding: 0;
+    margin: 0;
+    width: 100%;
 }
 
 /* Boxes */
-.box.box-primary {
-    border-top-color: #1a237e;
+.well {
+    background-color: #fff;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    margin: 0;
+    padding: 15px;
 }
 
 /* Images */
@@ -39,21 +67,30 @@
 .text-justify {
     text-align: justify;
     line-height: 1.6;
-    margin-top: 15px;
 }
 
 .text-primary {
     color: #1a237e;
-    margin-top: 20px;
 }
 
-/* Loading spinner */
-.shiny-spinner-output-container {
-    margin: 20px;
+/* Maps */
+.leaflet-container {
+    margin: 0;
+    width: 100% !important;
 }
 
-/* Responsive adjustments */
+/* Value boxes */
+.value-box {
+    border-radius: 0;
+    margin: 0;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
+    .navbar-nav {
+        margin: 0;
+    }
+    
     .img-responsive {
         max-height: 400px;
     }
