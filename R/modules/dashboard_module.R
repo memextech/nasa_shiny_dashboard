@@ -184,17 +184,10 @@ dashboardServer <- function(id, config) {
     output$apod_preview <- renderUI({
       data <- apod_data()
       req(data)
-      # Get today's APOD
-      data <- nasa_api_get(
-        endpoint = "/planetary/apod",
-        params = list(
-          date = format_nasa_date(Sys.Date())
-        )
-      )
       
       if (data$media_type == "image") {
         tags$div(
-          div(class = "preview-content",
+          div(class = "image-container",
             tags$img(
               src = data$url,
               class = "preview-image"
@@ -211,15 +204,13 @@ dashboardServer <- function(id, config) {
     
     # Mars Rover Preview
     output$mars_preview <- renderUI({
-      # Get latest Perseverance photo
-      data <- nasa_api_get(
-        endpoint = "/mars-photos/api/v1/rovers/perseverance/latest_photos"
-      )
+      data <- mars_data()
+      req(data)
       
       if (length(data$latest_photos) > 0) {
         latest <- data$latest_photos[[1]]
         tags$div(
-          div(class = "preview-content",
+          div(class = "image-container",
             tags$img(
               src = latest$img_src,
               class = "preview-image"
@@ -236,6 +227,47 @@ dashboardServer <- function(id, config) {
     
     # NEO Preview
     output$neo_preview <- renderPlotly({
+      data <- neo_data()
+      req(data)
+      
+      # Process data
+      neo_list <- list()
+      for (date in names(data$near_earth_objects)) {
+        neo_list[[length(neo_list) + 1]] <- list(
+          date = date,
+          count = length(data$near_earth_objects[[date]]),
+          hazardous = sum(sapply(data$near_earth_objects[[date]], function(x) x$is_potentially_hazardous_asteroid))
+        )
+      }
+      
+      df <- do.call(rbind, lapply(neo_list, as.data.frame))
+      df$date <- as.Date(df$date)
+      
+      # Create plot with specific dimensions
+      p <- plot_ly(df, height = 300) %>%
+        add_trace(
+          x = ~date,
+          y = ~count,
+          name = "Total NEOs",
+          type = "scatter",
+          mode = "lines+markers"
+        ) %>%
+        add_trace(
+          x = ~date,
+          y = ~hazardous,
+          name = "Hazardous",
+          type = "scatter",
+          mode = "lines+markers"
+        ) %>%
+        layout(
+          showlegend = TRUE,
+          margin = list(l = 50, r = 50, t = 30, b = 50),
+          xaxis = list(title = "Date"),
+          yaxis = list(title = "Number of Objects")
+        )
+      
+      div(class = "chart-container", p)
+    })
       # Get NEO data for last 7 days
       data <- nasa_api_get(
         endpoint = "/neo/rest/v1/feed",
@@ -283,30 +315,32 @@ dashboardServer <- function(id, config) {
     
     # ISS Preview
     output$iss_preview <- renderLeaflet({
-      # Get current ISS position
-      response <- httr::GET("http://api.open-notify.org/iss-now.json")
-      httr::stop_for_status(response)
-      data <- httr::content(response)
+      data <- iss_data()
+      req(data)
       
       lat <- as.numeric(data$iss_position$latitude)
       lng <- as.numeric(data$iss_position$longitude)
       
-      # Create map
-      leaflet() %>%
-        addTiles() %>%
-        setView(lng = lng, lat = lat, zoom = 3) %>%
-        addCircleMarkers(
-          lng = lng,
-          lat = lat,
-          radius = 10,
-          color = "red",
-          fillOpacity = 0.7,
-          popup = paste(
-            "ISS Position<br>",
-            "Latitude:", round(lat, 4), "<br>",
-            "Longitude:", round(lng, 4)
+      # Create map with dark theme
+      div(class = "map-container",
+        leaflet() %>%
+          addProviderTiles("CartoDB.DarkMatter") %>%
+          setView(lng = lng, lat = lat, zoom = 2) %>%
+          addCircleMarkers(
+            lng = lng,
+            lat = lat,
+            radius = 8,
+            color = "#FF4136",
+            fillColor = "#FF4136",
+            fillOpacity = 0.8,
+            weight = 2,
+            popup = paste(
+              "<strong>ISS Position</strong><br>",
+              "Latitude:", round(lat, 4), "<br>",
+              "Longitude:", round(lng, 4)
+            )
           )
-        )
+      )
     })
     
   })

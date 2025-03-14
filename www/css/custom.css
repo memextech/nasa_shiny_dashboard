@@ -124,17 +124,43 @@ body {
 .preview-content {
     height: 320px;
     position: relative;
+    padding: 15px;
+    margin: -15px;  /* offset parent padding */
+}
+
+/* Preview images */
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Image container */
+.image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Chart container */
+.chart-container {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Preview images */
-.preview-image {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: contain;
-    margin: auto;
+/* Map container */
+.map-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 /* Preview charts */
