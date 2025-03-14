@@ -25,7 +25,20 @@ config <- config::get()
 # UI
 ui <- fluidPage(
   tags$head(
-    tags$link(rel = "stylesheet", type = "text/css", href = "css/custom.css")
+    tags$link(rel = "stylesheet", type = "text/css", href = "css/custom.css"),
+    
+    # Social share meta tags
+    tags$meta(property = "og:title", content = "Space Explorer"),
+    tags$meta(property = "og:description", content = "Live dashboard tracking space data from NASA APIs and ISS location"),
+    tags$meta(property = "og:image", content = "https://memextech.shinyapps.io/space-explorer/assets/social-share.png"),
+    tags$meta(property = "og:url", content = "https://memextech.shinyapps.io/space-explorer/"),
+    tags$meta(property = "og:type", content = "website"),
+    
+    # Twitter specific
+    tags$meta(name = "twitter:card", content = "summary_large_image"),
+    tags$meta(name = "twitter:title", content = "Space Explorer"),
+    tags$meta(name = "twitter:description", content = "Live dashboard tracking space data from NASA APIs and ISS location"),
+    tags$meta(name = "twitter:image", content = "https://memextech.shinyapps.io/space-explorer/assets/social-share.png")
   ),
   
   # Navigation bar
