@@ -30,12 +30,13 @@ body {
 /* Content */
 .container-fluid {
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
+    max-width: 1400px;  /* Limit maximum width */
     width: 100%;
 }
 
 .tab-content {
-    padding: 0;
+    padding: 20px;
     margin: 0;
     width: 100%;
 }
@@ -44,6 +45,32 @@ body {
     padding: 0;
     margin: 0;
     width: 100%;
+}
+
+/* Grid adjustments */
+@media (min-width: 1200px) {
+    .col-sm-6 {
+        padding: 0 15px;
+    }
+    
+    .dashboard-tile {
+        height: 450px;  /* Taller on wider screens */
+    }
+    
+    .preview-content {
+        height: 370px;  /* Adjust content height accordingly */
+    }
+}
+
+/* Center content on very wide screens */
+@media (min-width: 1600px) {
+    body {
+        background-color: #eef2f5;  /* Subtle background color */
+    }
+    
+    .container-fluid {
+        padding: 30px;
+    }
 }
 
 /* Boxes */
@@ -223,12 +250,65 @@ body {
 
 /* Image container */
 .image-container {
+    position: relative;
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #000;
+    border-radius: 4px;
     overflow: hidden;
+}
+
+/* Preview images */
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Image hover effect */
+.image-container:hover .preview-image {
+    transform: scale(1.05);
+}
+
+/* Preview text overlay */
+.preview-text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+}
+
+.preview-text-overlay h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.preview-text-overlay p {
+    margin: 0;
+    font-size: 13px;
+    opacity: 0.9;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Date info */
+.preview-date {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px 10px;
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    border-radius: 3px;
+    font-size: 12px;
 }
 
 /* Chart container */

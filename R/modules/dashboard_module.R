@@ -174,19 +174,31 @@ dashboardServer <- function(id, config) {
       req(data)
       
       if (data$media_type == "image") {
-        tags$div(
-          div(class = "image-container",
-            tags$img(
-              src = data$url,
-              class = "preview-image"
-            )
+        div(class = "image-container",
+          # Date
+          div(class = "preview-date",
+            format(Sys.Date(), "%B %d, %Y")
           ),
-          div(class = "preview-text",
-            strong(data$title)
+          # Image
+          tags$img(
+            src = data$url,
+            class = "preview-image",
+            alt = data$title
+          ),
+          # Text overlay
+          div(class = "preview-text-overlay",
+            h4(data$title),
+            p(data$explanation)
           )
         )
       } else {
-        tags$p("Today's astronomy picture is a video. Click the link above to view it.")
+        div(class = "image-container",
+          div(style = "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;",
+            icon("video", style = "font-size: 48px; margin-bottom: 15px;"),
+            h4("Video Content"),
+            p("Click to view today's astronomy video")
+          )
+        )
       }
     })
     
@@ -197,17 +209,24 @@ dashboardServer <- function(id, config) {
       
       if (length(data$latest_photos) > 0) {
         latest <- data$latest_photos[[1]]
-        tags$div(
-          div(class = "image-container",
-            tags$img(
-              src = latest$img_src,
-              class = "preview-image"
-            )
+        div(class = "image-container",
+          # Date
+          div(class = "preview-date",
+            format(as.Date(latest$earth_date), "%B %d, %Y")
           ),
-          div(class = "preview-text",
-            strong("Latest from Perseverance"),
-            br(),
-            "Taken on: ", latest$earth_date
+          # Image
+          tags$img(
+            src = latest$img_src,
+            class = "preview-image",
+            alt = "Latest Mars Photo"
+          ),
+          # Text overlay
+          div(class = "preview-text-overlay",
+            h4("Latest from Perseverance"),
+            p(paste(
+              "Camera:", latest$camera$full_name,
+              "• Sol:", latest$sol
+            ))
           )
         )
       }
