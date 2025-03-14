@@ -87,23 +87,73 @@ body {
 
 /* Dashboard tiles */
 .dashboard-tile {
-    height: 400px;
-    margin-bottom: 20px;
-    padding: 15px;
+    height: 450px;  /* Increased height */
+    margin-bottom: 30px;  /* Increased margin */
+    padding: 20px;  /* Increased padding */
     background-color: #fff;
     border: none;
-    border-radius: 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-    overflow: hidden;
+    border-radius: 4px;  /* Slight rounding */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);  /* Softer shadow */
 }
 
 .dashboard-tile h3 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
+    margin: 0 0 20px 0;
+    padding-bottom: 15px;
     border-bottom: 1px solid #eee;
     font-size: 18px;
     font-weight: 500;
+    color: #333;
+}
+
+/* Content area */
+.preview-content {
+    height: 350px;  /* Fixed height */
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+/* Image container */
+.image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+/* Preview images */
+.preview-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Preview text */
+.preview-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.9);
+    text-align: center;
+    margin: 0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+/* Chart and map containers */
+.chart-container,
+.map-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #f8f9fa;
 }
 
 /* Dashboard links */

@@ -244,7 +244,7 @@ dashboardServer <- function(id, config) {
       df$date <- as.Date(df$date)
       
       # Create plot with specific dimensions
-      p <- plot_ly(df, height = 300) %>%
+      plot_ly(df, height = 300) %>%
         add_trace(
           x = ~date,
           y = ~count,
@@ -263,10 +263,11 @@ dashboardServer <- function(id, config) {
           showlegend = TRUE,
           margin = list(l = 50, r = 50, t = 30, b = 50),
           xaxis = list(title = "Date"),
-          yaxis = list(title = "Number of Objects")
+          yaxis = list(title = "Number of Objects"),
+          paper_bgcolor = "rgba(0,0,0,0)",
+          plot_bgcolor = "rgba(0,0,0,0)",
+          font = list(color = "#666")
         )
-      
-      div(class = "chart-container", p)
     })
     
     # ISS Preview
