@@ -17,9 +17,22 @@ dashboardUI <- function(id) {
             tags$a(href = "#", onclick = sprintf("$('a[data-value=\"APOD\"]').tab('show');"), 
                   icon("external-link-alt"))
           ),
-          # Content
           div(class = "preview-content",
-            uiOutput(ns("apod_preview"))
+            div(class = "loading-container",
+              # Loading spinner
+              conditionalPanel(
+                condition = "!output.apod_ready",
+                div(class = "loading-spinner",
+                  icon("spinner", class = "fa-spin"),
+                  div(class = "loading-text", "Loading astronomy picture...")
+                ),
+                ns = ns
+              ),
+              # Content
+              div(id = ns("apod_content"), class = "content-fade",
+                uiOutput(ns("apod_preview"))
+              )
+            )
           )
         )
       ),
@@ -85,7 +98,21 @@ dashboardUI <- function(id) {
                   icon("external-link-alt"))
           ),
           div(class = "preview-content",
-            leafletOutput(ns("iss_preview"), height = "100%")
+            div(class = "loading-container",
+              # Loading spinner
+              conditionalPanel(
+                condition = "!output.iss_ready",
+                div(class = "loading-spinner",
+                  icon("spinner", class = "fa-spin"),
+                  div(class = "loading-text", "Loading ISS location...")
+                ),
+                ns = ns
+              ),
+              # Content
+              div(id = ns("iss_content"), class = "content-fade",
+                leafletOutput(ns("iss_preview"), height = "100%")
+              )
+            )
           )
         )
       )
@@ -154,6 +181,17 @@ dashboardServer <- function(id, config) {
       httr::stop_for_status(response)
       httr::content(response)
     })
+    
+    # Loading states
+    output$apod_ready <- reactive({
+      !is.null(apod_data())
+    })
+    outputOptions(output, "apod_ready", suspendWhenHidden = FALSE)
+    
+    output$iss_ready <- reactive({
+      !is.null(iss_map())
+    })
+    outputOptions(output, "iss_ready", suspendWhenHidden = FALSE)
     
     # APOD Preview
     output$apod_preview <- renderUI({
