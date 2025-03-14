@@ -292,6 +292,13 @@ dashboardServer <- function(id, config) {
         )
     })
     
+    # ISS data
+    iss_data <- reactive({
+      response <- httr::GET("http://api.open-notify.org/iss-now.json")
+      httr::stop_for_status(response)
+      httr::content(response)
+    })
+
     # ISS Preview
     output$iss_preview <- renderLeaflet({
       data <- iss_data()
@@ -301,31 +308,59 @@ dashboardServer <- function(id, config) {
       lng <- as.numeric(data$iss_position$longitude)
       
       # Create map with dark theme
-      div(class = "map-container",
-        leaflet(options = leafletOptions(
-          zoomControl = TRUE,
-          minZoom = 2,
-          maxZoom = 8
-        )) %>%
-          addProviderTiles("CartoDB.DarkMatter") %>%
-          setView(lng = lng, lat = lat, zoom = 3) %>%
-          addCircleMarkers(
-            lng = lng,
-            lat = lat,
-            radius = 8,
-            color = "#1a237e",
-            fillColor = "#1a237e",
-            fillOpacity = 0.8,
-            weight = 2,
-            popup = paste(
-              "<div style='font-family: Arial; font-size: 12px;'>",
-              "<strong>ISS Position</strong><br>",
-              "Latitude: ", round(lat, 4), "°<br>",
-              "Longitude: ", round(lng, 4), "°",
-              "</div>"
-            )
+      leaflet(options = leafletOptions(
+        zoomControl = TRUE,
+        minZoom = 2,
+        maxZoom = 8
+      )) %>%
+        addProviderTiles("CartoDB.DarkMatter") %>%
+        setView(lng = lng, lat = lat, zoom = 3) %>%
+        addCircleMarkers(
+          lng = lng,
+          lat = lat,
+          radius = 8,
+          color = "#1a237e",
+          fillColor = "#1a237e",
+          fillOpacity = 0.8,
+          weight = 2,
+          popup = paste(
+            "<div style='font-family: Arial; font-size: 12px;'>",
+            "<strong>ISS Position</strong><br>",
+            "Latitude: ", round(lat, 4), "°<br>",
+            "Longitude: ", round(lng, 4), "°",
+            "</div>"
           )
-      )
+        )
+    })
+
+    # Auto-update ISS position
+    observe({
+      invalidateLater(5000)  # Update every 5 seconds
+      data <- iss_data()
+      req(data)
+      
+      lat <- as.numeric(data$iss_position$latitude)
+      lng <- as.numeric(data$iss_position$longitude)
+      
+      leafletProxy("iss_preview") %>%
+        setView(lng = lng, lat = lat, zoom = 3) %>%
+        clearMarkers() %>%
+        addCircleMarkers(
+          lng = lng,
+          lat = lat,
+          radius = 8,
+          color = "#1a237e",
+          fillColor = "#1a237e",
+          fillOpacity = 0.8,
+          weight = 2,
+          popup = paste(
+            "<div style='font-family: Arial; font-size: 12px;'>",
+            "<strong>ISS Position</strong><br>",
+            "Latitude: ", round(lat, 4), "°<br>",
+            "Longitude: ", round(lng, 4), "°",
+            "</div>"
+          )
+        )
     })
     
   })
