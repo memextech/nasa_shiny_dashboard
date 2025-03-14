@@ -268,50 +268,6 @@ dashboardServer <- function(id, config) {
       
       div(class = "chart-container", p)
     })
-      # Get NEO data for last 7 days
-      data <- nasa_api_get(
-        endpoint = "/neo/rest/v1/feed",
-        params = list(
-          start_date = format_nasa_date(Sys.Date() - 7),
-          end_date = format_nasa_date(Sys.Date())
-        )
-      )
-      
-      # Process data
-      neo_list <- list()
-      for (date in names(data$near_earth_objects)) {
-        neo_list[[length(neo_list) + 1]] <- list(
-          date = date,
-          count = length(data$near_earth_objects[[date]]),
-          hazardous = sum(sapply(data$near_earth_objects[[date]], function(x) x$is_potentially_hazardous_asteroid))
-        )
-      }
-      
-      df <- do.call(rbind, lapply(neo_list, as.data.frame))
-      df$date <- as.Date(df$date)
-      
-      # Create plot
-      plot_ly(df) %>%
-        add_trace(
-          x = ~date,
-          y = ~count,
-          name = "Total NEOs",
-          type = "scatter",
-          mode = "lines+markers"
-        ) %>%
-        add_trace(
-          x = ~date,
-          y = ~hazardous,
-          name = "Hazardous",
-          type = "scatter",
-          mode = "lines+markers"
-        ) %>%
-        layout(
-          showlegend = TRUE,
-          xaxis = list(title = "Date"),
-          yaxis = list(title = "Number of Objects")
-        )
-    })
     
     # ISS Preview
     output$iss_preview <- renderLeaflet({
