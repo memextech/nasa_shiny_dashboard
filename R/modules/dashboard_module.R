@@ -98,19 +98,7 @@ dashboardUI <- function(id) {
                   icon("external-link-alt"))
           ),
           div(class = "preview-content",
-            div(class = "loading-container",
-              conditionalPanel(
-                condition = "!output.iss_ready",
-                div(class = "loading-spinner",
-                  icon("spinner", class = "fa-spin"),
-                  div(class = "loading-text", "Loading ISS location...")
-                ),
-                ns = ns
-              ),
-              div(id = ns("iss_content"), class = "content-fade",
-                leafletOutput(ns("iss_preview"), height = "100%")
-              )
-            )
+            leafletOutput(ns("iss_preview"), height = "100%")
           )
         )
       )
@@ -292,27 +280,18 @@ dashboardServer <- function(id, config) {
         )
     })
     
-    # ISS data
-    iss_data <- reactive({
-      response <- httr::GET("http://api.open-notify.org/iss-now.json")
-      httr::stop_for_status(response)
-      httr::content(response)
-    })
-
     # ISS Preview
     output$iss_preview <- renderLeaflet({
-      data <- iss_data()
-      req(data)
+      # Get current ISS position
+      response <- httr::GET("http://api.open-notify.org/iss-now.json")
+      httr::stop_for_status(response)
+      data <- httr::content(response)
       
       lat <- as.numeric(data$iss_position$latitude)
       lng <- as.numeric(data$iss_position$longitude)
       
-      # Create map with dark theme
-      leaflet(options = leafletOptions(
-        zoomControl = TRUE,
-        minZoom = 2,
-        maxZoom = 8
-      )) %>%
+      # Create map
+      leaflet() %>%
         addProviderTiles("CartoDB.DarkMatter") %>%
         setView(lng = lng, lat = lat, zoom = 3) %>%
         addCircleMarkers(
@@ -332,17 +311,19 @@ dashboardServer <- function(id, config) {
           )
         )
     })
-
+    
     # Auto-update ISS position
     observe({
       invalidateLater(5000)  # Update every 5 seconds
-      data <- iss_data()
-      req(data)
+      
+      response <- httr::GET("http://api.open-notify.org/iss-now.json")
+      httr::stop_for_status(response)
+      data <- httr::content(response)
       
       lat <- as.numeric(data$iss_position$latitude)
       lng <- as.numeric(data$iss_position$longitude)
       
-      leafletProxy("iss_preview") %>%
+      leafletProxy(ns("iss_preview")) %>%
         setView(lng = lng, lat = lat, zoom = 3) %>%
         clearMarkers() %>%
         addCircleMarkers(
