@@ -21,8 +21,20 @@ apodUI <- function(id) {
             max = Sys.Date()
           ),
           
-          # Image display
-          uiOutput(ns("image_ui")),
+          # Loading state and image display
+          div(class = "loading-container",
+            conditionalPanel(
+              condition = "!output.image_ready",
+              div(class = "loading-spinner",
+                icon("spinner", class = "fa-spin"),
+                div(class = "loading-text", "Loading astronomy picture...")
+              ),
+              ns = ns
+            ),
+            div(id = ns("image_content"), class = "content-fade",
+              uiOutput(ns("image_ui"))
+            )
+          ),
           
           # Title and explanation
           htmlOutput(ns("title")),
@@ -68,8 +80,15 @@ apodServer <- function(id, config) {
       })
     })
     
+    # Loading state
+    output$image_ready <- reactive({
+      !is.null(apod_data())
+    })
+    outputOptions(output, "image_ready", suspendWhenHidden = FALSE)
+    
     # Render image
     output$image_ui <- renderUI({
+      req(apod_data())
       data <- apod_data()
       req(data)
       

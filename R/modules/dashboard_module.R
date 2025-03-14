@@ -11,20 +11,54 @@ dashboardUI <- function(id) {
     # APOD Section
     fluidRow(
       column(6,
-        div(class = "well",
-          h3("Astronomy Picture of the Day", 
-             tags$a(href = "#", onclick = sprintf("$('a[data-value=\"APOD\"]').tab('show');"), 
-                   icon("external-link-alt"), class = "pull-right")),
-          uiOutput(ns("apod_preview"))
+        div(class = "dashboard-tile",
+          h3(
+            "Astronomy Picture of the Day",
+            tags$a(href = "#", onclick = sprintf("$('a[data-value=\"APOD\"]').tab('show');"), 
+                  icon("external-link-alt"))
+          ),
+          div(class = "preview-content",
+            div(class = "loading-container",
+              # Loading spinner
+              conditionalPanel(
+                condition = "!output.apod_ready",
+                div(class = "loading-spinner",
+                  icon("spinner", class = "fa-spin"),
+                  div(class = "loading-text", "Loading image...")
+                ),
+                ns = ns
+              ),
+              # Content
+              div(id = ns("apod_content"), class = "content-fade",
+                uiOutput(ns("apod_preview"))
+              )
+            )
+          )
         )
       ),
       # Mars Rover Section
       column(6,
-        div(class = "well",
-          h3("Latest from Mars", 
-             tags$a(href = "#", onclick = sprintf("$('a[data-value=\"Mars Rover\"]').tab('show');"), 
-                   icon("external-link-alt"), class = "pull-right")),
-          uiOutput(ns("mars_preview"))
+        div(class = "dashboard-tile",
+          h3(
+            "Latest from Mars",
+            tags$a(href = "#", onclick = sprintf("$('a[data-value=\"Mars Rover\"]').tab('show');"), 
+                  icon("external-link-alt"))
+          ),
+          div(class = "preview-content",
+            div(class = "loading-container",
+              conditionalPanel(
+                condition = "!output.mars_ready",
+                div(class = "loading-spinner",
+                  icon("spinner", class = "fa-spin"),
+                  div(class = "loading-text", "Loading latest Mars photo...")
+                ),
+                ns = ns
+              ),
+              div(id = ns("mars_content"), class = "content-fade",
+                uiOutput(ns("mars_preview"))
+              )
+            )
+          )
         )
       )
     ),
@@ -32,20 +66,52 @@ dashboardUI <- function(id) {
     # NEO Section
     fluidRow(
       column(6,
-        div(class = "well",
-          h3("Near-Earth Objects", 
-             tags$a(href = "#", onclick = sprintf("$('a[data-value=\"NEO Tracker\"]').tab('show');"), 
-                   icon("external-link-alt"), class = "pull-right")),
-          plotlyOutput(ns("neo_preview"), height = "300px")
+        div(class = "dashboard-tile",
+          h3(
+            "Near-Earth Objects",
+            tags$a(href = "#", onclick = sprintf("$('a[data-value=\"NEO Tracker\"]').tab('show');"), 
+                  icon("external-link-alt"))
+          ),
+          div(class = "preview-content",
+            div(class = "loading-container",
+              conditionalPanel(
+                condition = "!output.neo_ready",
+                div(class = "loading-spinner",
+                  icon("spinner", class = "fa-spin"),
+                  div(class = "loading-text", "Loading NEO data...")
+                ),
+                ns = ns
+              ),
+              div(id = ns("neo_content"), class = "content-fade",
+                plotlyOutput(ns("neo_preview"), height = "100%")
+              )
+            )
+          )
         )
       ),
       # ISS Section
       column(6,
-        div(class = "well",
-          h3("ISS Location", 
-             tags$a(href = "#", onclick = sprintf("$('a[data-value=\"ISS Tracker\"]').tab('show');"), 
-                   icon("external-link-alt"), class = "pull-right")),
-          leafletOutput(ns("iss_preview"), height = "300px")
+        div(class = "dashboard-tile",
+          h3(
+            "ISS Location",
+            tags$a(href = "#", onclick = sprintf("$('a[data-value=\"ISS Tracker\"]').tab('show');"), 
+                  icon("external-link-alt"))
+          ),
+          div(class = "preview-content",
+            div(class = "loading-container",
+              conditionalPanel(
+                condition = "!output.iss_ready",
+                div(class = "loading-spinner",
+                  icon("spinner", class = "fa-spin"),
+                  div(class = "loading-text", "Loading ISS location...")
+                ),
+                ns = ns
+              ),
+              div(id = ns("iss_content"), class = "content-fade",
+                leafletOutput(ns("iss_preview"), height = "100%")
+              )
+            )
+          )
         )
       )
     )
@@ -60,8 +126,64 @@ dashboardUI <- function(id) {
 dashboardServer <- function(id, config) {
   moduleServer(id, function(input, output, session) {
     
+    # Loading state outputs
+    output$apod_ready <- reactive({
+      !is.null(apod_data())
+    })
+    outputOptions(output, "apod_ready", suspendWhenHidden = FALSE)
+    
+    output$mars_ready <- reactive({
+      !is.null(mars_data())
+    })
+    outputOptions(output, "mars_ready", suspendWhenHidden = FALSE)
+    
+    output$neo_ready <- reactive({
+      !is.null(neo_data())
+    })
+    outputOptions(output, "neo_ready", suspendWhenHidden = FALSE)
+    
+    output$iss_ready <- reactive({
+      !is.null(iss_data())
+    })
+    outputOptions(output, "iss_ready", suspendWhenHidden = FALSE)
+    
+    # Reactive data sources
+    apod_data <- reactive({
+      # Get today's APOD
+      nasa_api_get(
+        endpoint = "/planetary/apod",
+        params = list(
+          date = format_nasa_date(Sys.Date())
+        )
+      )
+    })
+    
+    mars_data <- reactive({
+      nasa_api_get(
+        endpoint = "/mars-photos/api/v1/rovers/perseverance/latest_photos"
+      )
+    })
+    
+    neo_data <- reactive({
+      nasa_api_get(
+        endpoint = "/neo/rest/v1/feed",
+        params = list(
+          start_date = format_nasa_date(Sys.Date() - 7),
+          end_date = format_nasa_date(Sys.Date())
+        )
+      )
+    })
+    
+    iss_data <- reactive({
+      response <- httr::GET("http://api.open-notify.org/iss-now.json")
+      httr::stop_for_status(response)
+      httr::content(response)
+    })
+    
     # APOD Preview
     output$apod_preview <- renderUI({
+      data <- apod_data()
+      req(data)
       # Get today's APOD
       data <- nasa_api_get(
         endpoint = "/planetary/apod",
@@ -72,12 +194,15 @@ dashboardServer <- function(id, config) {
       
       if (data$media_type == "image") {
         tags$div(
-          tags$img(
-            src = data$url,
-            class = "img-responsive",
-            style = "max-height: 300px; width: auto; margin: 0 auto; display: block;"
+          div(class = "preview-content",
+            tags$img(
+              src = data$url,
+              class = "preview-image"
+            )
           ),
-          tags$p(class = "text-center", strong(data$title))
+          div(class = "preview-text",
+            strong(data$title)
+          )
         )
       } else {
         tags$p("Today's astronomy picture is a video. Click the link above to view it.")
@@ -94,15 +219,17 @@ dashboardServer <- function(id, config) {
       if (length(data$latest_photos) > 0) {
         latest <- data$latest_photos[[1]]
         tags$div(
-          tags$img(
-            src = latest$img_src,
-            class = "img-responsive",
-            style = "max-height: 300px; width: auto; margin: 0 auto; display: block;"
+          div(class = "preview-content",
+            tags$img(
+              src = latest$img_src,
+              class = "preview-image"
+            )
           ),
-          tags$p(class = "text-center", 
-                strong("Latest from Perseverance"),
-                br(),
-                "Taken on: ", latest$earth_date)
+          div(class = "preview-text",
+            strong("Latest from Perseverance"),
+            br(),
+            "Taken on: ", latest$earth_date
+          )
         )
       }
     })

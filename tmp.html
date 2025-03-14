@@ -1,0 +1,864 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.2">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;html class="" style="height: auto;"&gt;&lt;head&gt;</p>
+<p class="p1">&lt;base href="_w_e106c881/"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script type="text/javascript"&gt;</p>
+<p class="p1">(function() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>var workerId = '_w_e106c881';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>// remove base href if worker ID is in url</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (window.location.href.indexOf(workerId) &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.querySelector('base').removeAttribute('href');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">})();</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;script type="text/javascript"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>var __connect = {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>shinyPre101: false</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/script&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script type="application/shiny-singletons"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script type="application/html-dependencies"&gt;jquery[3.6.0];shiny-css[1.10.0];shiny-busy-indicators[1.10.0];shiny-javascript[1.10.0];font-awesome[6.5.2];bootstrap-datepicker-js[1.9.0];bootstrap-datepicker-css[1.9.0];htmltools-fill[0.5.8.1];htmlwidgets[1.6.4];datatables-css[0.0.0];datatables-binding[0.33];crosstalk[1.2.1];plotly-binding[4.10.4];selectize[0.15.2];leaflet[1.3.1];leafletfix[1.0.0];proj4[2.6.2];Proj4Leaflet[1.0.1];rstudio_leaflet[1.3.1];leaflet-binding[2.2.2];bootstrap[3.4.1];AdminLTE[2.0.6];shinydashboard[0.7.2]&lt;/script&gt;</p>
+<p class="p1">&lt;script src="jquery-3.6.0/jquery.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;link href="shiny-css-1.10.0/shiny.min.css" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;link href="shiny-busy-indicators-1.10.0/busy-indicators.css" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;script src="shiny-javascript-1.10.0/shiny.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;link href="font-awesome-6.5.2/css/all.min.css" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;link href="font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;script src="bootstrap-datepicker-js-1.9.0/js/bootstrap-datepicker.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;script&gt;(function() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var datepicker = $.fn.datepicker.noConflict();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>$.fn.bsDatepicker = datepicker;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>})();</p>
+<p class="p1"><span class="Apple-converted-space">     </span>&lt;/script&gt;</p>
+<p class="p1">&lt;link href="bootstrap-datepicker-css-1.9.0/css/bootstrap-datepicker3.min.css" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;link href="htmltools-fill-0.5.8.1/fill.css" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;script src="htmlwidgets-1.6.4/htmlwidgets.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;link href="datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;script src="datatables-binding-0.33/datatables.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;link href="crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;script src="crosstalk-1.2.1/js/crosstalk.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;script src="plotly-binding-4.10.4/plotly.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;link href="selectize-0.15.2/css/selectize.bootstrap3.css" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;script src="selectize-0.15.2/js/selectize.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;script src="selectize-0.15.2/accessibility/js/selectize-plugin-a11y.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;link href="leaflet-1.3.1/leaflet.css" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;script src="leaflet-1.3.1/leaflet.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;link href="leafletfix-1.0.0/leafletfix.css" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;script src="proj4-2.6.2/proj4.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;script src="Proj4Leaflet-1.0.1/proj4leaflet.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;link href="rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;script src="leaflet-binding-2.2.2/leaflet.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</p>
+<p class="p1">&lt;link href="bootstrap-3.4.1/css/bootstrap.min.css" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;link href="bootstrap-3.4.1/accessibility/css/bootstrap-accessibility.min.css" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;script src="bootstrap-3.4.1/js/bootstrap.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;script src="bootstrap-3.4.1/accessibility/js/bootstrap-accessibility.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;link href="AdminLTE-2.0.6/AdminLTE.min.css" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;link href="AdminLTE-2.0.6/_all-skins.min.css" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;script src="AdminLTE-2.0.6/app.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;link href="shinydashboard-0.7.2/shinydashboard.css" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;script src="shinydashboard-0.7.2/shinydashboard.min.js"&gt;&lt;/script&gt;<span class="Apple-converted-space">  </span>&lt;title&gt;Space Explorer&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="stylesheet" type="text/css" href="css/custom.css"&gt;</p>
+<p class="p1">&lt;script src="__assets__/sockjs.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;script src="__assets__/shiny-server-client.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;script&gt;preShinyInit({reconnect:true,reconnectTimeout:15000,disableProtocols:["htmlfile","xdr-streaming","xdr-polling","websocket"],token:true,workerId:true,subappTag:true,extendSession:true,fixupInternalLinks:true});&lt;/script&gt;</p>
+<p class="p1">&lt;link rel="stylesheet" type="text/css" href="__assets__/rstudio-connect.css"&gt;</p>
+<p class="p1">&lt;link rel="stylesheet" type="text/css" href="/__static__/frontend/css/shinyapps.css"&gt;&lt;script src="typedarray-0.1/typedarray.min.js"&gt;&lt;/script&gt;&lt;link href="plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" type="text/css"&gt;&lt;script src="plotly-main-2.11.1/plotly-latest.min.js"&gt;&lt;/script&gt;&lt;style id="plotly.js-style-global"&gt;&lt;/style&gt;&lt;style id="plotly.js-style-modebar-d8fa11"&gt;&lt;/style&gt;&lt;link href="dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"&gt;&lt;link href="dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" type="text/css"&gt;&lt;script src="dt-core-1.13.6/js/jquery.dataTables.min.js"&gt;&lt;/script&gt;&lt;/head&gt;</p>
+<p class="p1">&lt;body class="skin-blue" style="min-height: 611px; height: auto;"&gt;</p>
+<p class="p1">&lt;script type="text/javascript" src="/__static__/components/iframe-resizer/js/iframeResizer.contentWindow.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;script type="text/javascript" src="/__static__/frontend/scripts/shinyapps.frame.content.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;script type="text/javascript" src="/__static__/frontend/scripts/shinyapps.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="wrapper" style="height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;header class="main-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="logo"&gt;Space Explorer&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;nav class="navbar navbar-static-top" role="navigation"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span style="display:none;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;i class="fas fa-bars" role="presentation" aria-label="bars icon"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="navbar-custom-menu"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;ul class="nav navbar-nav"&gt;&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;aside id="sidebarCollapsed" class="main-sidebar shiny-bound-input" data-collapsed="false"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;section id="sidebarItemExpanded" class="sidebar shiny-bound-input"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul class="sidebar-menu"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class=""&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#shiny-tab-dashboard" data-toggle="tab" data-value="dashboard" aria-expanded="false" tabindex="-1" aria-selected="false"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;i class="fas fa-gauge" role="presentation" aria-label="gauge icon"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span&gt;Dashboard&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class=""&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#shiny-tab-apod" data-toggle="tab" data-value="apod" aria-expanded="false" tabindex="-1" aria-selected="false"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;i class="far fa-star" role="presentation" aria-label="star icon"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span&gt;APOD&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class=""&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#shiny-tab-neo" data-toggle="tab" data-value="neo" aria-expanded="false" tabindex="-1" aria-selected="false"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;i class="fas fa-meteor" role="presentation" aria-label="meteor icon"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span&gt;NEO Tracker&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="active"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#shiny-tab-mars" data-toggle="tab" data-value="mars" aria-expanded="true" tabindex="0" aria-selected="true"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;i class="fas fa-robot" role="presentation" aria-label="robot icon"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span&gt;Mars Rover&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#shiny-tab-iss" data-toggle="tab" data-value="iss"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;i class="fas fa-satellite" role="presentation" aria-label="satellite icon"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span&gt;ISS Tracker&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#shiny-tab-about" data-toggle="tab" data-value="about"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;i class="fas fa-circle-info" role="presentation" aria-label="circle-info icon"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span&gt;About&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/aside&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="content-wrapper" style="min-height: 1183px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;section class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="tab-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div role="tabpanel" class="tab-pane" id="shiny-tab-dashboard" aria-hidden="true" tabindex="-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="row"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div role="tabpanel" class="tab-pane" id="shiny-tab-apod" aria-hidden="true" tabindex="-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="col-sm-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="box box-solid box-primary"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;div class="box-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="box-title"&gt;Astronomy Picture of the Day&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="apod-date" class="shiny-date-input form-group shiny-input-container shiny-bound-input"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;label class="control-label" id="apod-date-label" for="apod-date"&gt;Select Date:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;input type="text" class="form-control" aria-labelledby="apod-date-label" title="Date format: yyyy-mm-dd" data-date-language="en" data-date-week-start="0" data-date-format="yyyy-mm-dd" data-date-start-view="month" data-max-date="2025-03-14" data-initial-date="2025-03-14" data-date-autoclose="true" data-date-dates-disabled="null" data-date-days-of-week-disabled="null"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;pre class="shiny-text-output noplaceholder shiny-bound-output" id="apod-debug" aria-live="polite"&gt;[1] "Making request to: https://api.nasa.gov/planetary/apod"</p>
+<p class="p1">[1] "Parameters:"</p>
+<p class="p1">$date</p>
+<p class="p1">[1] "2025-03-14"</p>
+<p class="p2"><br></p>
+<p class="p1">$api_key</p>
+<p class="p1">[1] "lAo9BNvOcYNL2SAzvn3X9kDZN4h2xvRygbxjckDR"</p>
+<p class="p2"><br></p>
+<p class="p1">[1] "Response status: 200"</p>
+<p class="p1">[1] "Parsed response structure:"</p>
+<p class="p1">List of 8</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ copyright<span class="Apple-converted-space">      </span>: chr "El Cielo de Canarias"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ date <span class="Apple-converted-space">          </span>: chr "2025-03-14"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ explanation<span class="Apple-converted-space">    </span>: chr "What phase of the Moon is 3.14 radians from the Sun? The Full Moon, of course. Even though the Moon might look "| __truncated__</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ hdurl<span class="Apple-converted-space">          </span>: chr "https://apod.nasa.gov/apod/image/2503/MoonriseShadowDLopez_1.jpg"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ media_type <span class="Apple-converted-space">    </span>: chr "image"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ service_version: chr "v1"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ title<span class="Apple-converted-space">          </span>: chr "Moon Pi and Mountain Shadow"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ url<span class="Apple-converted-space">            </span>: chr "https://apod.nasa.gov/apod/image/2503/MoonriseShadowDLopez_1024.jpg"</p>
+<p class="p1">NULL</p>
+<p class="p1">[1] "API Response:"</p>
+<p class="p1">List of 8</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ copyright<span class="Apple-converted-space">      </span>: chr "El Cielo de Canarias"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ date <span class="Apple-converted-space">          </span>: chr "2025-03-14"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ explanation<span class="Apple-converted-space">    </span>: chr "What phase of the Moon is 3.14 radians from the Sun? The Full Moon, of course. Even though the Moon might look "| __truncated__</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ hdurl<span class="Apple-converted-space">          </span>: chr "https://apod.nasa.gov/apod/image/2503/MoonriseShadowDLopez_1.jpg"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ media_type <span class="Apple-converted-space">    </span>: chr "image"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ service_version: chr "v1"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ title<span class="Apple-converted-space">          </span>: chr "Moon Pi and Mountain Shadow"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ url<span class="Apple-converted-space">            </span>: chr "https://apod.nasa.gov/apod/image/2503/MoonriseShadowDLopez_1024.jpg"</p>
+<p class="p1">NULL</p>
+<p class="p1">List of 8</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ copyright<span class="Apple-converted-space">      </span>: chr "El Cielo de Canarias"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ date <span class="Apple-converted-space">          </span>: chr "2025-03-14"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ explanation<span class="Apple-converted-space">    </span>: chr "What phase of the Moon is 3.14 radians from the Sun? The Full Moon, of course. Even though the Moon might look "| __truncated__</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ hdurl<span class="Apple-converted-space">          </span>: chr "https://apod.nasa.gov/apod/image/2503/MoonriseShadowDLopez_1.jpg"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ media_type <span class="Apple-converted-space">    </span>: chr "image"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ service_version: chr "v1"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ title<span class="Apple-converted-space">          </span>: chr "Moon Pi and Mountain Shadow"</p>
+<p class="p1"><span class="Apple-converted-space"> </span>$ url<span class="Apple-converted-space">            </span>: chr "https://apod.nasa.gov/apod/image/2503/MoonriseShadowDLopez_1024.jpg"&lt;/pre&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="apod-image_ui" class="shiny-html-output shiny-bound-output" aria-live="polite"&gt;&lt;img src="https://apod.nasa.gov/apod/image/2503/MoonriseShadowDLopez_1024.jpg" class="img-responsive" alt="Moon Pi and Mountain Shadow" style="max-width: 100%; height: auto;"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="apod-title" class="shiny-html-output shiny-bound-output" aria-live="polite"&gt;&lt;h3 class="text-primary"&gt;Moon Pi and Mountain Shadow&lt;/h3&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="apod-explanation" class="shiny-html-output shiny-bound-output" aria-live="polite"&gt;&lt;p class="text-justify"&gt;What phase of the Moon is 3.14 radians from the Sun? The Full Moon, of course. Even though the Moon might look full for several days, the Moon is truly at its full phase when it is Pi radians (aka 180 degrees) from the Sun in ecliptic longitude. That's opposite the Sun in planet Earth's sky. Rising as the Sun set on March 9, 2020, only an hour or so after the moment of its full phase, this orange tinted and slightly flattened Moon still looked full. It was photographed opposite the setting Sun from Teide National Park on the Canary Island of Tenerife. Also opposite the setting Sun, seen from near the Teide volcano peak about 3,500 meters above sea level, is the mountain's rising triangular shadow extending into Earth's dense atmosphere. Below the distant ridge line on the left are the white telescope domes of Teide Observatory. Today, March 14 2025, the moon is Pi radians from the Sun at exactly 06:55 UTC. That's about three minutes before the midpoint of the March Full Moon's total lunar eclipse.&lt;/p&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div role="tabpanel" class="tab-pane" id="shiny-tab-neo" aria-hidden="true" tabindex="-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="col-sm-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="box box-solid box-primary"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;div class="box-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="box-title"&gt;Near-Earth Objects Tracker&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="neo-date_range" class="shiny-date-range-input form-group shiny-input-container shiny-bound-input"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;label class="control-label" id="neo-date_range-label" for="neo-date_range"&gt;Select Date Range:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;div class="input-daterange input-group input-group-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input class="form-control" type="text" aria-labelledby="neo-date_range-label" title="Date format: yyyy-mm-dd" data-date-language="en" data-date-week-start="0" data-date-format="yyyy-mm-dd" data-date-start-view="month" data-max-date="2025-03-14" data-initial-date="2025-03-07" data-date-autoclose="true"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="input-group-addon input-group-prepend input-group-append"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                          </span>&lt;span class="input-group-text"&gt; to &lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input class="form-control" type="text" aria-labelledby="neo-date_range-label" title="Date format: yyyy-mm-dd" data-date-language="en" data-date-week-start="0" data-date-format="yyyy-mm-dd" data-date-start-view="month" data-max-date="2025-03-14" data-initial-date="2025-03-14" data-date-autoclose="true"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group shiny-input-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;div class="checkbox"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                          </span>&lt;input id="neo-hazardous_only" type="checkbox" class="shiny-input-checkbox shiny-bound-input"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                          </span>&lt;span&gt;Show potentially hazardous asteroids only&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;div class="shiny-html-output col-sm-4 shiny-bound-output" id="neo-total_neo_box" aria-live="polite"&gt;&lt;div class="small-box bg-blue"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;126&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Total NEOs&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="icon-large"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;i class="fas fa-meteor" role="presentation" aria-label="meteor icon"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;div class="shiny-html-output col-sm-4 shiny-bound-output" id="neo-hazardous_box" aria-live="polite"&gt;&lt;div class="small-box bg-red"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;7&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Hazardous&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="icon-large"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;i class="fas fa-triangle-exclamation" role="presentation" aria-label="triangle-exclamation icon"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;div class="shiny-html-output col-sm-4 shiny-bound-output" id="neo-closest_box" aria-live="polite"&gt;&lt;div class="small-box bg-yellow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;144.22 km&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Closest Approach&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="icon-large"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;i class="fas fa-ruler" role="presentation" aria-label="ruler icon"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="datatables html-widget html-widget-output shiny-report-size html-fill-item shiny-bound-output" id="neo-neo_table" style="width:100%;height:auto;" aria-live="polite"&gt;&lt;div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer"&gt;&lt;div class="dataTables_length" id="DataTables_Table_0_length"&gt;&lt;label&gt;Show &lt;select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class=""&gt;&lt;option value="10"&gt;10&lt;/option&gt;&lt;option value="25"&gt;25&lt;/option&gt;&lt;option value="50"&gt;50&lt;/option&gt;&lt;option value="100"&gt;100&lt;/option&gt;&lt;/select&gt; entries&lt;/label&gt;&lt;/div&gt;&lt;div id="DataTables_Table_0_filter" class="dataTables_filter"&gt;&lt;label&gt;Search:&lt;input type="search" class="" placeholder="" aria-controls="DataTables_Table_0"&gt;&lt;/label&gt;&lt;/div&gt;&lt;div id="DataTables_Table_0_processing" class="dataTables_processing" role="status" style="display: none;"&gt;&lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;table class="display dataTable no-footer" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;tr&gt;&lt;th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="date: activate to sort column ascending"&gt;date&lt;/th&gt;&lt;th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="id: activate to sort column ascending"&gt;id&lt;/th&gt;&lt;th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="name: activate to sort column ascending"&gt;name&lt;/th&gt;&lt;th class="dt-right sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="diameter_min: activate to sort column ascending"&gt;diameter_min&lt;/th&gt;&lt;th class="dt-right sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="diameter_max: activate to sort column ascending"&gt;diameter_max&lt;/th&gt;&lt;th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="hazardous: activate to sort column ascending"&gt;hazardous&lt;/th&gt;&lt;th class="dt-right sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="miss_distance: activate to sort column ascending"&gt;miss_distance&lt;/th&gt;&lt;th class="dt-right sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="velocity: activate to sort column ascending"&gt;velocity&lt;/th&gt;&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/thead&gt;&lt;tbody&gt;&lt;tr class="odd"&gt;&lt;td&gt;2025-03-10&lt;/td&gt;&lt;td&gt;3709250&lt;/td&gt;&lt;td&gt;(2015 BY512)&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.1338304618&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.2992540101&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;66336716.09243678&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;62380.7415886568&lt;/td&gt;&lt;/tr&gt;&lt;tr class="even"&gt;&lt;td&gt;2025-03-10&lt;/td&gt;&lt;td&gt;3785931&lt;/td&gt;&lt;td&gt;(2017 TA6)&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.0101054342&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.0225964377&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;63109087.8179589&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;59694.5904882901&lt;/td&gt;&lt;/tr&gt;&lt;tr class="odd"&gt;&lt;td&gt;2025-03-10&lt;/td&gt;&lt;td&gt;3843836&lt;/td&gt;&lt;td&gt;(2019 RB3)&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.0384197891&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.0859092601&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;45217659.22965208&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;64324.5734991006&lt;/td&gt;&lt;/tr&gt;&lt;tr class="even"&gt;&lt;td&gt;2025-03-10&lt;/td&gt;&lt;td&gt;3989355&lt;/td&gt;&lt;td&gt;(2020 CB)&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.0076657557&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.0171411509&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;36011593.24735043&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;24764.878666185&lt;/td&gt;&lt;/tr&gt;&lt;tr class="odd"&gt;&lt;td&gt;2025-03-10&lt;/td&gt;&lt;td&gt;54131354&lt;/td&gt;&lt;td&gt;(2021 EU3)&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.0096506147&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.0215794305&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;4087872.64977167&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;15711.5686440537&lt;/td&gt;&lt;/tr&gt;&lt;tr class="even"&gt;&lt;td&gt;2025-03-10&lt;/td&gt;&lt;td&gt;54184284&lt;/td&gt;&lt;td&gt;(2021 PF7)&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.0072871041&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.0162944602&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;31470147.26083333&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;24500.5521777886&lt;/td&gt;&lt;/tr&gt;&lt;tr class="odd"&gt;&lt;td&gt;2025-03-10&lt;/td&gt;&lt;td&gt;54201454&lt;/td&gt;&lt;td&gt;(2021 SJ3)&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.014878357&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.0332690178&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;63276467.68365581&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;24101.6353088639&lt;/td&gt;&lt;/tr&gt;&lt;tr class="even"&gt;&lt;td&gt;2025-03-10&lt;/td&gt;&lt;td&gt;54298995&lt;/td&gt;&lt;td&gt;(2022 QB8)&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.0179702855&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.0401827799&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;39253540.76066854&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;56182.8056854183&lt;/td&gt;&lt;/tr&gt;&lt;tr class="odd"&gt;&lt;td&gt;2025-03-10&lt;/td&gt;&lt;td&gt;54322868&lt;/td&gt;&lt;td&gt;(2022 US21)&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.1128638801&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.2523713081&lt;/td&gt;&lt;td&gt;true&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;44499286.51796533&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;62657.9804555262&lt;/td&gt;&lt;/tr&gt;&lt;tr class="even"&gt;&lt;td&gt;2025-03-10&lt;/td&gt;&lt;td&gt;54430730&lt;/td&gt;&lt;td&gt;(2024 EZ3)&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.0183888672&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;0.0411187571&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;67496348.69530989&lt;/td&gt;&lt;td class="<span class="Apple-converted-space">  </span>dt-right"&gt;69619.328697721&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;</p>
+<p class="p1">&lt;/table&gt;&lt;div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite"&gt;Showing 1 to 10 of 126 entries&lt;/div&gt;&lt;div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"&gt;&lt;a class="paginate_button previous disabled" aria-controls="DataTables_Table_0" aria-disabled="true" role="link" data-dt-idx="previous" tabindex="-1" id="DataTables_Table_0_previous"&gt;Previous&lt;/a&gt;&lt;span&gt;&lt;a class="paginate_button current" aria-controls="DataTables_Table_0" role="link" aria-current="page" data-dt-idx="0" tabindex="0"&gt;1&lt;/a&gt;&lt;a class="paginate_button " aria-controls="DataTables_Table_0" role="link" data-dt-idx="1" tabindex="0"&gt;2&lt;/a&gt;&lt;a class="paginate_button " aria-controls="DataTables_Table_0" role="link" data-dt-idx="2" tabindex="0"&gt;3&lt;/a&gt;&lt;a class="paginate_button " aria-controls="DataTables_Table_0" role="link" data-dt-idx="3" tabindex="0"&gt;4&lt;/a&gt;&lt;a class="paginate_button " aria-controls="DataTables_Table_0" role="link" data-dt-idx="4" tabindex="0"&gt;5&lt;/a&gt;&lt;span class="ellipsis"&gt;…&lt;/span&gt;&lt;a class="paginate_button " aria-controls="DataTables_Table_0" role="link" data-dt-idx="12" tabindex="0"&gt;13&lt;/a&gt;&lt;/span&gt;&lt;a class="paginate_button next" aria-controls="DataTables_Table_0" role="link" data-dt-idx="next" tabindex="0" id="DataTables_Table_0_next"&gt;Next&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item shiny-bound-output js-plotly-plot" id="neo-neo_plot" style="width: 100%; height: 400px; visibility: inherit;" aria-live="polite"&gt;&lt;div class="plot-container plotly"&gt;&lt;div class="user-select-none svg-container" style="position: relative; width: 500px; height: 400px;"&gt;&lt;svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="400" style="background: rgb(255, 255, 255);"&gt;&lt;defs id="defs-d8fa11"&gt;&lt;g class="clips"&gt;&lt;clipPath id="clipd8fa11xyplot" class="plotclip"&gt;&lt;rect width="341" height="320"&gt;&lt;/rect&gt;&lt;/clipPath&gt;&lt;clipPath class="axesclip" id="clipd8fa11x"&gt;&lt;rect x="60" y="0" width="341" height="400"&gt;&lt;/rect&gt;&lt;/clipPath&gt;&lt;clipPath class="axesclip" id="clipd8fa11y"&gt;&lt;rect x="0" y="25" width="500" height="320"&gt;&lt;/rect&gt;&lt;/clipPath&gt;&lt;clipPath class="axesclip" id="clipd8fa11xy"&gt;&lt;rect x="60" y="25" width="341" height="320"&gt;&lt;/rect&gt;&lt;/clipPath&gt;&lt;/g&gt;&lt;g class="gradients"&gt;&lt;/g&gt;&lt;g class="patterns"&gt;&lt;/g&gt;&lt;/defs&gt;&lt;g class="bglayer"&gt;&lt;/g&gt;&lt;g class="draglayer cursor-crosshair"&gt;&lt;g class="xy"&gt;&lt;rect class="nsewdrag drag" data-subplot="xy" x="60" y="25" width="341" height="320" style="fill: transparent; stroke-width: 0; pointer-events: all;"&gt;&lt;/rect&gt;&lt;rect class="nwdrag drag cursor-nw-resize" data-subplot="xy" x="40" y="5" width="20" height="20" style="fill: transparent; stroke-width: 0; pointer-events: all;"&gt;&lt;/rect&gt;&lt;rect class="nedrag drag cursor-ne-resize" data-subplot="xy" x="401" y="5" width="20" height="20" style="fill: transparent; stroke-width: 0; pointer-events: all;"&gt;&lt;/rect&gt;&lt;rect class="swdrag drag cursor-sw-resize" data-subplot="xy" x="40" y="345" width="20" height="20" style="fill: transparent; stroke-width: 0; pointer-events: all;"&gt;&lt;/rect&gt;&lt;rect class="sedrag drag cursor-se-resize" data-subplot="xy" x="401" y="345" width="20" height="20" style="fill: transparent; stroke-width: 0; pointer-events: all;"&gt;&lt;/rect&gt;&lt;rect class="ewdrag drag cursor-ew-resize" data-subplot="xy" x="94.1" y="345.5" width="272.8" height="20" style="fill: transparent; stroke-width: 0; pointer-events: all;"&gt;&lt;/rect&gt;&lt;rect class="wdrag drag cursor-w-resize" data-subplot="xy" x="60" y="345.5" width="34.1" height="20" style="fill: transparent; stroke-width: 0; pointer-events: all;"&gt;&lt;/rect&gt;&lt;rect class="edrag drag cursor-e-resize" data-subplot="xy" x="366.90000000000003" y="345.5" width="34.1" height="20" style="fill: transparent; stroke-width: 0; pointer-events: all;"&gt;&lt;/rect&gt;&lt;rect class="nsdrag drag cursor-ns-resize" data-subplot="xy" x="39.5" y="57" width="20" height="256" style="fill: transparent; stroke-width: 0; pointer-events: all;"&gt;&lt;/rect&gt;&lt;rect class="sdrag drag cursor-s-resize" data-subplot="xy" x="39.5" y="313" width="20" height="32" style="fill: transparent; stroke-width: 0; pointer-events: all;"&gt;&lt;/rect&gt;&lt;rect class="ndrag drag cursor-n-resize" data-subplot="xy" x="39.5" y="25" width="20" height="32" style="fill: transparent; stroke-width: 0; pointer-events: all;"&gt;&lt;/rect&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class="layer-below"&gt;&lt;g class="imagelayer"&gt;&lt;/g&gt;&lt;g class="shapelayer"&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class="cartesianlayer"&gt;&lt;g class="subplot xy"&gt;&lt;g class="layer-subplot"&gt;&lt;g class="shapelayer"&gt;&lt;/g&gt;&lt;g class="imagelayer"&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class="gridlayer"&gt;&lt;g class="x"&gt;&lt;path class="xgrid crisp" transform="translate(80.26,0)" d="M0,25v320" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"&gt;&lt;/path&gt;&lt;path class="xgrid crisp" transform="translate(166.06,0)" d="M0,25v320" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"&gt;&lt;/path&gt;&lt;path class="xgrid crisp" transform="translate(251.85,0)" d="M0,25v320" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"&gt;&lt;/path&gt;&lt;path class="xgrid crisp" transform="translate(337.64,0)" d="M0,25v320" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"&gt;&lt;/path&gt;&lt;/g&gt;&lt;g class="y"&gt;&lt;path class="ygrid crisp" transform="translate(0,288.25)" d="M60,0h341" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"&gt;&lt;/path&gt;&lt;path class="ygrid crisp" transform="translate(0,249.95)" d="M60,0h341" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"&gt;&lt;/path&gt;&lt;path class="ygrid crisp" transform="translate(0,211.66)" d="M60,0h341" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"&gt;&lt;/path&gt;&lt;path class="ygrid crisp" transform="translate(0,173.36)" d="M60,0h341" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"&gt;&lt;/path&gt;&lt;path class="ygrid crisp" transform="translate(0,135.06)" d="M60,0h341" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"&gt;&lt;/path&gt;&lt;path class="ygrid crisp" transform="translate(0,96.76)" d="M60,0h341" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"&gt;&lt;/path&gt;&lt;path class="ygrid crisp" transform="translate(0,58.46)" d="M60,0h341" style="stroke: rgb(238, 238, 238); stroke-opacity: 1; stroke-width: 1px;"&gt;&lt;/path&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class="zerolinelayer"&gt;&lt;path class="yzl zl crisp" transform="translate(0,326.55)" d="M60,0h341" style="stroke: rgb(68, 68, 68); stroke-opacity: 1; stroke-width: 1px;"&gt;&lt;/path&gt;&lt;/g&gt;&lt;path class="xlines-below"&gt;&lt;/path&gt;&lt;path class="ylines-below"&gt;&lt;/path&gt;&lt;g class="overlines-below"&gt;&lt;/g&gt;&lt;g class="xaxislayer-below"&gt;&lt;/g&gt;&lt;g class="yaxislayer-below"&gt;&lt;/g&gt;&lt;g class="overaxes-below"&gt;&lt;/g&gt;&lt;g class="plot" transform="translate(60,25)" clip-path="url('https://memextech.shinyapps.io/nasa-dashboard/#clipd8fa11xyplot')"&gt;&lt;g class="scatterlayer mlayer"&gt;&lt;g class="trace scatter tracef1bfa9" style="stroke-miterlimit: 2; opacity: 1;"&gt;&lt;g class="fills"&gt;&lt;/g&gt;&lt;g class="errorbars"&gt;&lt;/g&gt;&lt;g class="lines"&gt;&lt;/g&gt;&lt;g class="points"&gt;&lt;path class="point" transform="translate(148.95,47.49)" d="M2.91,0A2.91,2.91 0 1,1 0,-2.91A2.91,2.91 0 0,1 2.91,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(148.95,59.85)" d="M2.28,0A2.28,2.28 0 1,1 0,-2.28A2.28,2.28 0 0,1 2.28,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(148.95,128.37)" d="M2.44,0A2.44,2.44 0 1,1 0,-2.44A2.44,2.44 0 0,1 2.44,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(148.95,163.63)" d="M2.26,0A2.26,2.26 0 1,1 0,-2.26A2.26,2.26 0 0,1 2.26,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(148.95,285.9)" d="M2.28,0A2.28,2.28 0 1,1 0,-2.28A2.28,2.28 0 0,1 2.28,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(148.95,181.03)" d="M2.26,0A2.26,2.26 0 1,1 0,-2.26A2.26,2.26 0 0,1 2.26,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(148.95,59.21)" d="M2.31,0A2.31,2.31 0 1,1 0,-2.31A2.31,2.31 0 0,1 2.31,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(148.95,151.22)" d="M2.32,0A2.32,2.32 0 1,1 0,-2.32A2.32,2.32 0 0,1 2.32,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(148.95,43.05)" d="M2.33,0A2.33,2.33 0 1,1 0,-2.33A2.33,2.33 0 0,1 2.33,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(148.95,98.37)" d="M2.28,0A2.28,2.28 0 1,1 0,-2.28A2.28,2.28 0 0,1 2.28,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(148.95,188.73)" d="M2.59,0A2.59,2.59 0 1,1 0,-2.59A2.59,2.59 0 0,1 2.59,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(148.95,292.86)" d="M2.26,0A2.26,2.26 0 1,1 0,-2.26A2.26,2.26 0 0,1 2.26,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(148.95,291.09)" d="M2.29,0A2.29,2.29 0 1,1 0,-2.29A2.29,2.29 0 0,1 2.29,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(191.85,38.87)" d="M3.43,0A3.43,3.43 0 1,1 0,-3.43A3.43,3.43 0 0,1 3.43,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(191.85,230.08)" d="M2.58,0A2.58,2.58 0 1,1 0,-2.58A2.58,2.58 0 0,1 2.58,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(191.85,231.13)" d="M2.24,0A2.24,2.24 0 1,1 0,-2.24A2.24,2.24 0 0,1 2.24,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(191.85,239.25)" d="M2.34,0A2.34,2.34 0 1,1 0,-2.34A2.34,2.34 0 0,1 2.34,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(191.85,149.97)" d="M2.31,0A2.31,2.31 0 1,1 0,-2.31A2.31,2.31 0 0,1 2.31,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(191.85,47.54)" d="M2.4,0A2.4,2.4 0 1,1 0,-2.4A2.4,2.4 0 0,1 2.4,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(191.85,102.14)" d="M2.42,0A2.42,2.42 0 1,1 0,-2.42A2.42,2.42 0 0,1 2.42,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(191.85,51.71)" d="M2.24,0A2.24,2.24 0 1,1 0,-2.24A2.24,2.24 0 0,1 2.24,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(191.85,272.22)" d="M2.34,0A2.34,2.34 0 1,1 0,-2.34A2.34,2.34 0 0,1 2.34,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(191.85,287.4)" d="M2.28,0A2.28,2.28 0 1,1 0,-2.28A2.28,2.28 0 0,1 2.28,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(191.85,260.08)" d="M2.35,0A2.35,2.35 0 1,1 0,-2.35A2.35,2.35 0 0,1 2.35,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(191.85,199.4)" d="M2.52,0A2.52,2.52 0 1,1 0,-2.52A2.52,2.52 0 0,1 2.52,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,221.59)" d="M2.6,0A2.6,2.6 0 1,1 0,-2.6A2.6,2.6 0 0,1 2.6,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,131.02)" d="M3.04,0A3.04,3.04 0 1,1 0,-3.04A3.04,3.04 0 0,1 3.04,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,226.01)" d="M2.6,0A2.6,2.6 0 1,1 0,-2.6A2.6,2.6 0 0,1 2.6,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,110.15)" d="M2.28,0A2.28,2.28 0 1,1 0,-2.28A2.28,2.28 0 0,1 2.28,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,229.86)" d="M2.29,0A2.29,2.29 0 1,1 0,-2.29A2.29,2.29 0 0,1 2.29,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,237.71)" d="M2.36,0A2.36,2.36 0 1,1 0,-2.36A2.36,2.36 0 0,1 2.36,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,252.01)" d="M3.57,0A3.57,3.57 0 1,1 0,-3.57A3.57,3.57 0 0,1 3.57,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,35.58)" d="M4.04,0A4.04,4.04 0 1,1 0,-4.04A4.04,4.04 0 0,1 4.04,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,35.58)" d="M4.03,0A4.03,4.03 0 1,1 0,-4.03A4.03,4.03 0 0,1 4.03,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,260.61)" d="M2.28,0A2.28,2.28 0 1,1 0,-2.28A2.28,2.28 0 0,1 2.28,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,131.38)" d="M2.38,0A2.38,2.38 0 1,1 0,-2.38A2.38,2.38 0 0,1 2.38,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,231.69)" d="M2.26,0A2.26,2.26 0 1,1 0,-2.26A2.26,2.26 0 0,1 2.26,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,264.53)" d="M2.38,0A2.38,2.38 0 1,1 0,-2.38A2.38,2.38 0 0,1 2.38,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,256.43)" d="M2.36,0A2.36,2.36 0 1,1 0,-2.36A2.36,2.36 0 0,1 2.36,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,273.45)" d="M2.44,0A2.44,2.44 0 1,1 0,-2.44A2.44,2.44 0 0,1 2.44,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,287.26)" d="M2.35,0A2.35,2.35 0 1,1 0,-2.35A2.35,2.35 0 0,1 2.35,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,275.67)" d="M2.42,0A2.42,2.42 0 1,1 0,-2.42A2.42,2.42 0 0,1 2.42,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,235.23)" d="M2.48,0A2.48,2.48 0 1,1 0,-2.48A2.48,2.48 0 0,1 2.48,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,287.98)" d="M2.32,0A2.32,2.32 0 1,1 0,-2.32A2.32,2.32 0 0,1 2.32,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,290.54)" d="M2.34,0A2.34,2.34 0 1,1 0,-2.34A2.34,2.34 0 0,1 2.34,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,231.78)" d="M2.81,0A2.81,2.81 0 1,1 0,-2.81A2.81,2.81 0 0,1 2.81,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,293.38)" d="M2.28,0A2.28,2.28 0 1,1 0,-2.28A2.28,2.28 0 0,1 2.28,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(277.64,203.39)" d="M2.43,0A2.43,2.43 0 1,1 0,-2.43A2.43,2.43 0 0,1 2.43,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(277.64,235.63)" d="M2.42,0A2.42,2.42 0 1,1 0,-2.42A2.42,2.42 0 0,1 2.42,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(277.64,164.98)" d="M2.96,0A2.96,2.96 0 1,1 0,-2.96A2.96,2.96 0 0,1 2.96,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(277.64,36.97)" d="M2.74,0A2.74,2.74 0 1,1 0,-2.74A2.74,2.74 0 0,1 2.74,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(277.64,76.21)" d="M2.7,0A2.7,2.7 0 1,1 0,-2.7A2.7,2.7 0 0,1 2.7,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(277.64,175.51)" d="M2.3,0A2.3,2.3 0 1,1 0,-2.3A2.3,2.3 0 0,1 2.3,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(277.64,86.04)" d="M2.39,0A2.39,2.39 0 1,1 0,-2.39A2.39,2.39 0 0,1 2.39,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(277.64,62.15)" d="M2.39,0A2.39,2.39 0 1,1 0,-2.39A2.39,2.39 0 0,1 2.39,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(277.64,273.15)" d="M2.35,0A2.35,2.35 0 1,1 0,-2.35A2.35,2.35 0 0,1 2.35,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(277.64,213.37)" d="M2.51,0A2.51,2.51 0 1,1 0,-2.51A2.51,2.51 0 0,1 2.51,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(277.64,269.31)" d="M2.3,0A2.3,2.3 0 1,1 0,-2.3A2.3,2.3 0 0,1 2.3,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(277.64,200.63)" d="M2.39,0A2.39,2.39 0 1,1 0,-2.39A2.39,2.39 0 0,1 2.39,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(277.64,288.72)" d="M2.33,0A2.33,2.33 0 1,1 0,-2.33A2.33,2.33 0 0,1 2.33,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(320.54,269.13)" d="M2.48,0A2.48,2.48 0 1,1 0,-2.48A2.48,2.48 0 0,1 2.48,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(320.54,70.3)" d="M2.93,0A2.93,2.93 0 1,1 0,-2.93A2.93,2.93 0 0,1 2.93,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(320.54,70.12)" d="M2.83,0A2.83,2.83 0 1,1 0,-2.83A2.83,2.83 0 0,1 2.83,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(320.54,154.78)" d="M2.41,0A2.41,2.41 0 1,1 0,-2.41A2.41,2.41 0 0,1 2.41,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(320.54,50.02)" d="M2.27,0A2.27,2.27 0 1,1 0,-2.27A2.27,2.27 0 0,1 2.27,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(320.54,94.39)" d="M2.35,0A2.35,2.35 0 1,1 0,-2.35A2.35,2.35 0 0,1 2.35,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(320.54,117.3)" d="M2.41,0A2.41,2.41 0 1,1 0,-2.41A2.41,2.41 0 0,1 2.41,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(320.54,74.31)" d="M2.26,0A2.26,2.26 0 1,1 0,-2.26A2.26,2.26 0 0,1 2.26,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(320.54,227.04)" d="M2.76,0A2.76,2.76 0 1,1 0,-2.76A2.76,2.76 0 0,1 2.76,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(320.54,254.01)" d="M2.28,0A2.28,2.28 0 1,1 0,-2.28A2.28,2.28 0 0,1 2.28,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(320.54,19)" d="M2.35,0A2.35,2.35 0 1,1 0,-2.35A2.35,2.35 0 0,1 2.35,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(320.54,198.53)" d="M2.3,0A2.3,2.3 0 1,1 0,-2.3A2.3,2.3 0 0,1 2.3,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(320.54,32.75)" d="M2.3,0A2.3,2.3 0 1,1 0,-2.3A2.3,2.3 0 0,1 2.3,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(320.54,272.94)" d="M2.28,0A2.28,2.28 0 1,1 0,-2.28A2.28,2.28 0 0,1 2.28,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(320.54,232.66)" d="M2.39,0A2.39,2.39 0 1,1 0,-2.39A2.39,2.39 0 0,1 2.39,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(320.54,293.15)" d="M2.27,0A2.27,2.27 0 1,1 0,-2.27A2.27,2.27 0 0,1 2.27,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(20.26,236.11)" d="M2.63,0A2.63,2.63 0 1,1 0,-2.63A2.63,2.63 0 0,1 2.63,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(20.26,39.02)" d="M2.38,0A2.38,2.38 0 1,1 0,-2.38A2.38,2.38 0 0,1 2.38,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(20.26,227.97)" d="M2.68,0A2.68,2.68 0 1,1 0,-2.68A2.68,2.68 0 0,1 2.68,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(20.26,297.08)" d="M2.29,0A2.29,2.29 0 1,1 0,-2.29A2.29,2.29 0 0,1 2.29,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(20.26,55.33)" d="M2.35,0A2.35,2.35 0 1,1 0,-2.35A2.35,2.35 0 0,1 2.35,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(20.26,93.77)" d="M2.61,0A2.61,2.61 0 1,1 0,-2.61A2.61,2.61 0 0,1 2.61,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(20.26,159.62)" d="M2.54,0A2.54,2.54 0 1,1 0,-2.54A2.54,2.54 0 0,1 2.54,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(20.26,26.21)" d="M2.58,0A2.58,2.58 0 1,1 0,-2.58A2.58,2.58 0 0,1 2.58,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(20.26,218.81)" d="M2.81,0A2.81,2.81 0 1,1 0,-2.81A2.81,2.81 0 0,1 2.81,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(20.26,282.21)" d="M2.36,0A2.36,2.36 0 1,1 0,-2.36A2.36,2.36 0 0,1 2.36,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(20.26,290.01)" d="M2.33,0A2.33,2.33 0 1,1 0,-2.33A2.33,2.33 0 0,1 2.33,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(20.26,258.97)" d="M2.42,0A2.42,2.42 0 1,1 0,-2.42A2.42,2.42 0 0,1 2.42,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(20.26,299.84)" d="M2.25,0A2.25,2.25 0 1,1 0,-2.25A2.25,2.25 0 0,1 2.25,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(20.26,250.32)" d="M2.35,0A2.35,2.35 0 1,1 0,-2.35A2.35,2.35 0 0,1 2.35,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(63.16,226.07)" d="M2.35,0A2.35,2.35 0 1,1 0,-2.35A2.35,2.35 0 0,1 2.35,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(63.16,298.65)" d="M2.57,0A2.57,2.57 0 1,1 0,-2.57A2.57,2.57 0 0,1 2.57,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(63.16,126.4)" d="M2.65,0A2.65,2.65 0 1,1 0,-2.65A2.65,2.65 0 0,1 2.65,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(63.16,258.05)" d="M2.36,0A2.36,2.36 0 1,1 0,-2.36A2.36,2.36 0 0,1 2.36,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(63.16,211.76)" d="M2.28,0A2.28,2.28 0 1,1 0,-2.28A2.28,2.28 0 0,1 2.28,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(63.16,85.58)" d="M2.27,0A2.27,2.27 0 1,1 0,-2.27A2.27,2.27 0 0,1 2.27,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(63.16,31.9)" d="M3.38,0A3.38,3.38 0 1,1 0,-3.38A3.38,3.38 0 0,1 3.38,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(63.16,295.78)" d="M2.38,0A2.38,2.38 0 1,1 0,-2.38A2.38,2.38 0 0,1 2.38,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(63.16,287.45)" d="M2.27,0A2.27,2.27 0 1,1 0,-2.27A2.27,2.27 0 0,1 2.27,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(63.16,296.64)" d="M2.27,0A2.27,2.27 0 1,1 0,-2.27A2.27,2.27 0 0,1 2.27,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(63.16,287.75)" d="M2.25,0A2.25,2.25 0 1,1 0,-2.25A2.25,2.25 0 0,1 2.25,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(63.16,285.76)" d="M2.3,0A2.3,2.3 0 1,1 0,-2.3A2.3,2.3 0 0,1 2.3,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(63.16,294.1)" d="M2.25,0A2.25,2.25 0 1,1 0,-2.25A2.25,2.25 0 0,1 2.25,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(63.16,277.01)" d="M2.3,0A2.3,2.3 0 1,1 0,-2.3A2.3,2.3 0 0,1 2.3,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(63.16,301)" d="M2.29,0A2.29,2.29 0 1,1 0,-2.29A2.29,2.29 0 0,1 2.29,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(106.06,257.07)" d="M7.07,0A7.07,7.07 0 1,1 0,-7.07A7.07,7.07 0 0,1 7.07,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(106.06,199.94)" d="M3.53,0A3.53,3.53 0 1,1 0,-3.53A3.53,3.53 0 0,1 3.53,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(106.06,131.66)" d="M3.62,0A3.62,3.62 0 1,1 0,-3.62A3.62,3.62 0 0,1 3.62,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(106.06,233.8)" d="M2.41,0A2.41,2.41 0 1,1 0,-2.41A2.41,2.41 0 0,1 2.41,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(106.06,60.45)" d="M2.34,0A2.34,2.34 0 1,1 0,-2.34A2.34,2.34 0 0,1 2.34,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(106.06,33.18)" d="M2.43,0A2.43,2.43 0 1,1 0,-2.43A2.43,2.43 0 0,1 2.43,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(106.06,109.49)" d="M2.68,0A2.68,2.68 0 1,1 0,-2.68A2.68,2.68 0 0,1 2.68,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(106.06,65.26)" d="M2.27,0A2.27,2.27 0 1,1 0,-2.27A2.27,2.27 0 0,1 2.27,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(106.06,245.11)" d="M2.29,0A2.29,2.29 0 1,1 0,-2.29A2.29,2.29 0 0,1 2.29,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(106.06,196.71)" d="M2.66,0A2.66,2.66 0 1,1 0,-2.66A2.66,2.66 0 0,1 2.66,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(106.06,271.99)" d="M2.38,0A2.38,2.38 0 1,1 0,-2.38A2.38,2.38 0 0,1 2.38,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(106.06,245.1)" d="M2.33,0A2.33,2.33 0 1,1 0,-2.33A2.33,2.33 0 0,1 2.33,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(106.06,282.41)" d="M2.37,0A2.37,2.37 0 1,1 0,-2.37A2.37,2.37 0 0,1 2.37,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(106.06,299.42)" d="M2.29,0A2.29,2.29 0 1,1 0,-2.29A2.29,2.29 0 0,1 2.29,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;/g&gt;&lt;g class="text"&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class="trace scatter trace894ed4" style="stroke-miterlimit: 2; opacity: 1;"&gt;&lt;g class="fills"&gt;&lt;/g&gt;&lt;g class="errorbars"&gt;&lt;/g&gt;&lt;g class="lines"&gt;&lt;/g&gt;&lt;g class="points"&gt;&lt;path class="point" transform="translate(148.95,131.13)" d="M2.81,0A2.81,2.81 0 1,1 0,-2.81A2.81,2.81 0 0,1 2.81,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(141, 160, 203); fill-opacity: 1; stroke: rgb(141, 160, 203); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(234.75,212.69)" d="M3.16,0A3.16,3.16 0 1,1 0,-3.16A3.16,3.16 0 0,1 3.16,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(141, 160, 203); fill-opacity: 1; stroke: rgb(141, 160, 203); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(277.64,51.96)" d="M3.41,0A3.41,3.41 0 1,1 0,-3.41A3.41,3.41 0 0,1 3.41,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(141, 160, 203); fill-opacity: 1; stroke: rgb(141, 160, 203); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(320.54,188)" d="M3.05,0A3.05,3.05 0 1,1 0,-3.05A3.05,3.05 0 0,1 3.05,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(141, 160, 203); fill-opacity: 1; stroke: rgb(141, 160, 203); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(20.26,98.16)" d="M2.87,0A2.87,2.87 0 1,1 0,-2.87A2.87,2.87 0 0,1 2.87,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(141, 160, 203); fill-opacity: 1; stroke: rgb(141, 160, 203); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(63.16,271.29)" d="M4.67,0A4.67,4.67 0 1,1 0,-4.67A4.67,4.67 0 0,1 4.67,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(141, 160, 203); fill-opacity: 1; stroke: rgb(141, 160, 203); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;path class="point" transform="translate(63.16,163.09)" d="M3.15,0A3.15,3.15 0 1,1 0,-3.15A3.15,3.15 0 0,1 3.15,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(141, 160, 203); fill-opacity: 1; stroke: rgb(141, 160, 203); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;/g&gt;&lt;g class="text"&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class="overplot"&gt;&lt;/g&gt;&lt;path class="xlines-above crisp" d="M0,0" style="fill: none;"&gt;&lt;/path&gt;&lt;path class="ylines-above crisp" d="M0,0" style="fill: none;"&gt;&lt;/path&gt;&lt;g class="overlines-above"&gt;&lt;/g&gt;&lt;g class="xaxislayer-above"&gt;&lt;g class="xtick"&gt;&lt;text text-anchor="middle" x="0" y="358" data-unformatted="Mar 7&lt;br&gt;2025" data-math="N" transform="translate(80.26,0)" style="font-family: &amp;quot;Open Sans&amp;quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre; opacity: 1;"&gt;&lt;tspan class="line" dy="0em" x="0" y="358"&gt;Mar 7&lt;/tspan&gt;&lt;tspan class="line" dy="1.3em" x="0" y="358"&gt;2025&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;g class="xtick"&gt;&lt;text text-anchor="middle" x="0" y="358" data-unformatted="Mar 9" data-math="N" style="font-family: &amp;quot;Open Sans&amp;quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(166.06,0)"&gt;Mar 9&lt;/text&gt;&lt;/g&gt;&lt;g class="xtick"&gt;&lt;text text-anchor="middle" x="0" y="358" data-unformatted="Mar 11" data-math="N" style="font-family: &amp;quot;Open Sans&amp;quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(251.85,0)"&gt;Mar 11&lt;/text&gt;&lt;/g&gt;&lt;g class="xtick"&gt;&lt;text text-anchor="middle" x="0" y="358" data-unformatted="Mar 13" data-math="N" style="font-family: &amp;quot;Open Sans&amp;quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(337.64,0)"&gt;Mar 13&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class="yaxislayer-above"&gt;&lt;g class="ytick"&gt;&lt;text text-anchor="end" x="59" y="4.199999999999999" data-unformatted="0" data-math="N" transform="translate(0,326.55)" style="font-family: &amp;quot;Open Sans&amp;quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre; opacity: 1;"&gt;0&lt;/text&gt;&lt;/g&gt;&lt;g class="ytick"&gt;&lt;text text-anchor="end" x="59" y="4.199999999999999" data-unformatted="10M" data-math="N" style="font-family: &amp;quot;Open Sans&amp;quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(0,288.25)"&gt;10M&lt;/text&gt;&lt;/g&gt;&lt;g class="ytick"&gt;&lt;text text-anchor="end" x="59" y="4.199999999999999" data-unformatted="20M" data-math="N" style="font-family: &amp;quot;Open Sans&amp;quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(0,249.95)"&gt;20M&lt;/text&gt;&lt;/g&gt;&lt;g class="ytick"&gt;&lt;text text-anchor="end" x="59" y="4.199999999999999" data-unformatted="30M" data-math="N" style="font-family: &amp;quot;Open Sans&amp;quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(0,211.66)"&gt;30M&lt;/text&gt;&lt;/g&gt;&lt;g class="ytick"&gt;&lt;text text-anchor="end" x="59" y="4.199999999999999" data-unformatted="40M" data-math="N" style="font-family: &amp;quot;Open Sans&amp;quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(0,173.36)"&gt;40M&lt;/text&gt;&lt;/g&gt;&lt;g class="ytick"&gt;&lt;text text-anchor="end" x="59" y="4.199999999999999" data-unformatted="50M" data-math="N" style="font-family: &amp;quot;Open Sans&amp;quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(0,135.06)"&gt;50M&lt;/text&gt;&lt;/g&gt;&lt;g class="ytick"&gt;&lt;text text-anchor="end" x="59" y="4.199999999999999" data-unformatted="60M" data-math="N" style="font-family: &amp;quot;Open Sans&amp;quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(0,96.76)"&gt;60M&lt;/text&gt;&lt;/g&gt;&lt;g class="ytick"&gt;&lt;text text-anchor="end" x="59" y="4.199999999999999" data-unformatted="70M" data-math="N" style="font-family: &amp;quot;Open Sans&amp;quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(0,58.46)"&gt;70M&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class="overaxes-above"&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class="polarlayer"&gt;&lt;/g&gt;&lt;g class="smithlayer"&gt;&lt;/g&gt;&lt;g class="ternarylayer"&gt;&lt;/g&gt;&lt;g class="geolayer"&gt;&lt;/g&gt;&lt;g class="funnelarealayer"&gt;&lt;/g&gt;&lt;g class="pielayer"&gt;&lt;/g&gt;&lt;g class="iciclelayer"&gt;&lt;/g&gt;&lt;g class="treemaplayer"&gt;&lt;/g&gt;&lt;g class="sunburstlayer"&gt;&lt;/g&gt;&lt;g class="glimages"&gt;&lt;/g&gt;&lt;/svg&gt;&lt;div class="gl-container"&gt;&lt;/div&gt;&lt;svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="400"&gt;&lt;defs id="topdefs-d8fa11"&gt;&lt;g class="clips"&gt;&lt;/g&gt;&lt;clipPath id="legendd8fa11"&gt;&lt;rect width="82" height="48" x="0" y="0"&gt;&lt;/rect&gt;&lt;/clipPath&gt;&lt;/defs&gt;&lt;g class="indicatorlayer"&gt;&lt;/g&gt;&lt;g class="layer-above"&gt;&lt;g class="imagelayer"&gt;&lt;/g&gt;&lt;g class="shapelayer"&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class="infolayer"&gt;&lt;g class="legend" pointer-events="all" transform="translate(407.82,25)"&gt;&lt;rect class="bg" shape-rendering="crispEdges" style="stroke: rgb(68, 68, 68); stroke-opacity: 1; fill: rgb(255, 255, 255); fill-opacity: 1; stroke-width: 0px;" width="82" height="48" x="0" y="0"&gt;&lt;/rect&gt;&lt;g class="scrollbox" transform="" clip-path="url('https://memextech.shinyapps.io/nasa-dashboard/#legendd8fa11')"&gt;&lt;g class="groups"&gt;&lt;g class="traces" transform="translate(0,14.5)" style="opacity: 1;"&gt;&lt;text class="legendtext" text-anchor="start" x="40" y="4.680000000000001" data-unformatted="FALSE" data-math="N" style="font-family: &amp;quot;Open Sans&amp;quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;"&gt;FALSE&lt;/text&gt;&lt;g class="layers" style="opacity: 1;"&gt;&lt;g class="legendfill"&gt;&lt;/g&gt;&lt;g class="legendlines"&gt;&lt;/g&gt;&lt;g class="legendsymbols"&gt;&lt;g class="legendpoints"&gt;&lt;path class="scatterpts" transform="translate(20,0)" d="M6.68,0A6.68,6.68 0 1,1 0,-6.68A6.68,6.68 0 0,1 6.68,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(102, 194, 165); fill-opacity: 1; stroke: rgb(102, 194, 165); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;rect class="legendtoggle" pointer-events="all" x="0" y="-9.5" width="76.984375" height="19" style="cursor: pointer; fill: rgb(0, 0, 0); fill-opacity: 0;"&gt;&lt;/rect&gt;&lt;/g&gt;&lt;g class="traces" transform="translate(0,33.5)" style="opacity: 1;"&gt;&lt;text class="legendtext" text-anchor="start" x="40" y="4.680000000000001" data-unformatted="TRUE" data-math="N" style="font-family: &amp;quot;Open Sans&amp;quot;, verdana, arial, sans-serif; font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;"&gt;TRUE&lt;/text&gt;&lt;g class="layers" style="opacity: 1;"&gt;&lt;g class="legendfill"&gt;&lt;/g&gt;&lt;g class="legendlines"&gt;&lt;/g&gt;&lt;g class="legendsymbols"&gt;&lt;g class="legendpoints"&gt;&lt;path class="scatterpts" transform="translate(20,0)" d="M8,0A8,8 0 1,1 0,-8A8,8 0 0,1 8,0Z" style="opacity: 0.7; stroke-width: 1px; fill: rgb(141, 160, 203); fill-opacity: 1; stroke: rgb(141, 160, 203); stroke-opacity: 1;"&gt;&lt;/path&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;rect class="legendtoggle" pointer-events="all" x="0" y="-9.5" width="76.984375" height="19" style="cursor: pointer; fill: rgb(0, 0, 0); fill-opacity: 0;"&gt;&lt;/rect&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;rect class="scrollbar" rx="20" ry="3" width="0" height="0" style="fill: rgb(128, 139, 164); fill-opacity: 1;" x="0" y="0"&gt;&lt;/rect&gt;&lt;/g&gt;&lt;g class="g-gtitle"&gt;&lt;text class="gtitle" x="250" y="12.5" text-anchor="middle" dy="0em" data-unformatted="NEO Close Approaches" data-math="N" style="font-family: &amp;quot;Open Sans&amp;quot;, verdana, arial, sans-serif; font-size: 17px; fill: rgb(68, 68, 68); opacity: 1; font-weight: normal; white-space: pre;"&gt;NEO Close Approaches&lt;/text&gt;&lt;/g&gt;&lt;g class="g-xtitle"&gt;&lt;text class="xtitle" x="230.5" y="397" text-anchor="middle" data-unformatted="Date" data-math="N" style="font-family: &amp;quot;Open Sans&amp;quot;, verdana, arial, sans-serif; font-size: 14px; fill: rgb(68, 68, 68); opacity: 1; font-weight: normal; white-space: pre;"&gt;Date&lt;/text&gt;&lt;/g&gt;&lt;g class="g-ytitle"&gt;&lt;text class="ytitle" transform="rotate(-90,22,185)" x="22" y="185" text-anchor="middle" data-unformatted="Miss Distance (km)" data-math="N" style="font-family: &amp;quot;Open Sans&amp;quot;, verdana, arial, sans-serif; font-size: 14px; fill: rgb(68, 68, 68); opacity: 1; font-weight: normal; white-space: pre;"&gt;Miss Distance (km)&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class="menulayer"&gt;&lt;/g&gt;&lt;g class="zoomlayer"&gt;&lt;/g&gt;&lt;/svg&gt;&lt;div class="modebar-container" style="position: absolute; top: 0px; right: 0px; width: 100%;"&gt;&lt;div id="modebar-d8fa11" class="modebar modebar--hover ease-bg"&gt;&lt;div class="modebar-group"&gt;&lt;a rel="tooltip" class="modebar-btn" data-title="Download plot as a png" data-toggle="false" data-gravity="n"&gt;&lt;svg viewBox="0 0 1000 1000" class="icon" height="1em" width="1em"&gt;&lt;path d="m500 450c-83 0-150-67-150-150 0-83 67-150 150-150 83 0 150 67 150 150 0 83-67 150-150 150z m400 150h-120c-16 0-34 13-39 29l-31 93c-6 15-23 28-40 28h-340c-16 0-34-13-39-28l-31-94c-6-15-23-28-40-28h-120c-55 0-100-45-100-100v-450c0-55 45-100 100-100h800c55 0 100 45 100 100v450c0 55-45 100-100 100z m-400-550c-138 0-250 112-250 250 0 138 112 250 250 250 138 0 250-112 250-250 0-138-112-250-250-250z m365 380c-19 0-35 16-35 35 0 19 16 35 35 35 19 0 35-16 35-35 0-19-16-35-35-35z" transform="matrix(1 0 0 -1 0 850)"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="modebar-group"&gt;&lt;a rel="tooltip" class="modebar-btn active" data-title="Zoom" data-attr="dragmode" data-val="zoom" data-toggle="false" data-gravity="n"&gt;&lt;svg viewBox="0 0 1000 1000" class="icon" height="1em" width="1em"&gt;&lt;path d="m1000-25l-250 251c40 63 63 138 63 218 0 224-182 406-407 406-224 0-406-182-406-406s183-406 407-406c80 0 155 22 218 62l250-250 125 125z m-812 250l0 438 437 0 0-438-437 0z m62 375l313 0 0-312-313 0 0 312z" transform="matrix(1 0 0 -1 0 850)"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a rel="tooltip" class="modebar-btn" data-title="Pan" data-attr="dragmode" data-val="pan" data-toggle="false" data-gravity="n"&gt;&lt;svg viewBox="0 0 1000 1000" class="icon" height="1em" width="1em"&gt;&lt;path d="m1000 350l-187 188 0-125-250 0 0 250 125 0-188 187-187-187 125 0 0-250-250 0 0 125-188-188 186-187 0 125 252 0 0-250-125 0 187-188 188 188-125 0 0 250 250 0 0-126 187 188z" transform="matrix(1 0 0 -1 0 850)"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a rel="tooltip" class="modebar-btn" data-title="Box Select" data-attr="dragmode" data-val="select" data-toggle="false" data-gravity="n"&gt;&lt;svg viewBox="0 0 1000 1000" class="icon" height="1em" width="1em"&gt;&lt;path d="m0 850l0-143 143 0 0 143-143 0z m286 0l0-143 143 0 0 143-143 0z m285 0l0-143 143 0 0 143-143 0z m286 0l0-143 143 0 0 143-143 0z m-857-286l0-143 143 0 0 143-143 0z m857 0l0-143 143 0 0 143-143 0z m-857-285l0-143 143 0 0 143-143 0z m857 0l0-143 143 0 0 143-143 0z m-857-286l0-143 143 0 0 143-143 0z m286 0l0-143 143 0 0 143-143 0z m285 0l0-143 143 0 0 143-143 0z m286 0l0-143 143 0 0 143-143 0z" transform="matrix(1 0 0 -1 0 850)"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a rel="tooltip" class="modebar-btn" data-title="Lasso Select" data-attr="dragmode" data-val="lasso" data-toggle="false" data-gravity="n"&gt;&lt;svg viewBox="0 0 1031 1000" class="icon" height="1em" width="1em"&gt;&lt;path d="m1018 538c-36 207-290 336-568 286-277-48-473-256-436-463 10-57 36-108 76-151-13-66 11-137 68-183 34-28 75-41 114-42l-55-70 0 0c-2-1-3-2-4-3-10-14-8-34 5-45 14-11 34-8 45 4 1 1 2 3 2 5l0 0 113 140c16 11 31 24 45 40 4 3 6 7 8 11 48-3 100 0 151 9 278 48 473 255 436 462z m-624-379c-80 14-149 48-197 96 42 42 109 47 156 9 33-26 47-66 41-105z m-187-74c-19 16-33 37-39 60 50-32 109-55 174-68-42-25-95-24-135 8z m360 75c-34-7-69-9-102-8 8 62-16 128-68 170-73 59-175 54-244-5-9 20-16 40-20 61-28 159 121 317 333 354s407-60 434-217c28-159-121-318-333-355z" transform="matrix(1 0 0 -1 0 850)"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="modebar-group"&gt;&lt;a rel="tooltip" class="modebar-btn" data-title="Zoom in" data-attr="zoom" data-val="in" data-toggle="false" data-gravity="n"&gt;&lt;svg viewBox="0 0 875 1000" class="icon" height="1em" width="1em"&gt;&lt;path d="m1 787l0-875 875 0 0 875-875 0z m687-500l-187 0 0-187-125 0 0 187-188 0 0 125 188 0 0 187 125 0 0-187 187 0 0-125z" transform="matrix(1 0 0 -1 0 850)"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a rel="tooltip" class="modebar-btn" data-title="Zoom out" data-attr="zoom" data-val="out" data-toggle="false" data-gravity="n"&gt;&lt;svg viewBox="0 0 875 1000" class="icon" height="1em" width="1em"&gt;&lt;path d="m0 788l0-876 875 0 0 876-875 0z m688-500l-500 0 0 125 500 0 0-125z" transform="matrix(1 0 0 -1 0 850)"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a rel="tooltip" class="modebar-btn" data-title="Autoscale" data-attr="zoom" data-val="auto" data-toggle="false" data-gravity="n"&gt;&lt;svg viewBox="0 0 1000 1000" class="icon" height="1em" width="1em"&gt;&lt;path d="m250 850l-187 0-63 0 0-62 0-188 63 0 0 188 187 0 0 62z m688 0l-188 0 0-62 188 0 0-188 62 0 0 188 0 62-62 0z m-875-938l0 188-63 0 0-188 0-62 63 0 187 0 0 62-187 0z m875 188l0-188-188 0 0-62 188 0 62 0 0 62 0 188-62 0z m-125 188l-1 0-93-94-156 156 156 156 92-93 2 0 0 250-250 0 0-2 93-92-156-156-156 156 94 92 0 2-250 0 0-250 0 0 93 93 157-156-157-156-93 94 0 0 0-250 250 0 0 0-94 93 156 157 156-157-93-93 0 0 250 0 0 250z" transform="matrix(1 0 0 -1 0 850)"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a rel="tooltip" class="modebar-btn" data-title="Reset axes" data-attr="zoom" data-val="reset" data-toggle="false" data-gravity="n"&gt;&lt;svg viewBox="0 0 928.6 1000" class="icon" height="1em" width="1em"&gt;&lt;path d="m786 296v-267q0-15-11-26t-25-10h-214v214h-143v-214h-214q-15 0-25 10t-11 26v267q0 1 0 2t0 2l321 264 321-264q1-1 1-4z m124 39l-34-41q-5-5-12-6h-2q-7 0-12 3l-386 322-386-322q-7-4-13-4-7 2-12 7l-35 41q-4 5-3 13t6 12l401 334q18 15 42 15t43-15l136-114v109q0 8 5 13t13 5h107q8 0 13-5t5-13v-227l122-102q5-5 6-12t-4-13z" transform="matrix(1 0 0 -1 0 850)"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="modebar-group"&gt;&lt;a rel="tooltip" class="modebar-btn active" data-title="Show closest data on hover" data-attr="hovermode" data-val="closest" data-toggle="false" data-gravity="ne"&gt;&lt;svg viewBox="0 0 1500 1000" class="icon" height="1em" width="1em"&gt;&lt;path d="m375 725l0 0-375-375 375-374 0-1 1125 0 0 750-1125 0z" transform="matrix(1 0 0 -1 0 850)"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a rel="tooltip" class="modebar-btn" data-title="Compare data on hover" data-attr="hovermode" data-val="x" data-toggle="false" data-gravity="ne"&gt;&lt;svg viewBox="0 0 1125 1000" class="icon" height="1em" width="1em"&gt;&lt;path d="m187 786l0 2-187-188 188-187 0 0 937 0 0 373-938 0z m0-499l0 1-187-188 188-188 0 0 937 0 0 376-938-1z" transform="matrix(1 0 0 -1 0 850)"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="modebar-group"&gt;&lt;a href="https://plotly.com/" target="_blank" data-title="Produced with Plotly.js (v2.11.1)" class="modebar-btn plotlyjsicon modebar-btn--logo"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 132" height="1em" width="1em"&gt;&lt;defs&gt;&lt;style&gt;.cls-1 {fill: #3f4f75;} .cls-2 {fill: #80cfbe;} .cls-3 {fill: #fff;}&lt;/style&gt;&lt;/defs&gt;&lt;title&gt;plotly-logomark&lt;/title&gt;&lt;g id="symbol"&gt;&lt;rect class="cls-1" width="132" height="132" rx="6" ry="6"&gt;&lt;/rect&gt;&lt;circle class="cls-2" cx="78" cy="54" r="6"&gt;&lt;/circle&gt;&lt;circle class="cls-2" cx="102" cy="30" r="6"&gt;&lt;/circle&gt;&lt;circle class="cls-2" cx="78" cy="30" r="6"&gt;&lt;/circle&gt;&lt;circle class="cls-2" cx="54" cy="30" r="6"&gt;&lt;/circle&gt;&lt;circle class="cls-2" cx="30" cy="30" r="6"&gt;&lt;/circle&gt;&lt;circle class="cls-2" cx="30" cy="54" r="6"&gt;&lt;/circle&gt;&lt;path class="cls-3" d="M30,72a6,6,0,0,0-6,6v24a6,6,0,0,0,12,0V78A6,6,0,0,0,30,72Z"&gt;&lt;/path&gt;&lt;path class="cls-3" d="M78,72a6,6,0,0,0-6,6v24a6,6,0,0,0,12,0V78A6,6,0,0,0,78,72Z"&gt;&lt;/path&gt;&lt;path class="cls-3" d="M54,48a6,6,0,0,0-6,6v48a6,6,0,0,0,12,0V54A6,6,0,0,0,54,48Z"&gt;&lt;/path&gt;&lt;path class="cls-3" d="M102,48a6,6,0,0,0-6,6v48a6,6,0,0,0,12,0V54A6,6,0,0,0,102,48Z"&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="400"&gt;&lt;g class="hoverlayer"&gt;&lt;/g&gt;&lt;/svg&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div role="tabpanel" class="tab-pane active" id="shiny-tab-mars" aria-hidden="false" tabindex="0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="col-sm-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="box box-solid box-primary"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;div class="box-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="box-title"&gt;Mars Rover Photos&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group shiny-input-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;label class="control-label" id="mars-rover-label" for="mars-rover-selectized"&gt;Select Rover:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;select id="mars-rover" class="shiny-input-select selectized shiny-bound-input" tabindex="-1" style="display: none;"&gt;</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1">&lt;option value="Curiosity" selected="selected"&gt;Curiosity&lt;/option&gt;&lt;/select&gt;&lt;div class="shiny-input-select selectize-control single plugin-selectize-plugin-a11y"&gt;&lt;div class="selectize-input items full has-options has-items"&gt;&lt;div class="item" data-value="Curiosity"&gt;Curiosity&lt;/div&gt;&lt;input type="text" autocomplete="new-password" autofill="no" tabindex="" id="mars-rover-selectized" role="combobox" aria-expanded="false" haspopup="listbox" aria-owns="wxfexonlvz" style="width: 4px;"&gt;&lt;/div&gt;&lt;div class="single selectize-dropdown shiny-input-select plugin-selectize-plugin-a11y" style="display: none;"&gt;&lt;div class="selectize-dropdown-content" tabindex="-1" role="listbox" id="wxfexonlvz"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;script type="application/json" data-for="mars-rover" data-nonempty=""&gt;{"plugins":["selectize-plugin-a11y"]}&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="mars-date" class="shiny-date-input form-group shiny-input-container shiny-bound-input"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;label class="control-label" id="mars-date-label" for="mars-date"&gt;Select Date:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;input type="text" class="form-control" aria-labelledby="mars-date-label" title="Date format: yyyy-mm-dd" data-date-language="en" data-date-week-start="0" data-date-format="yyyy-mm-dd" data-date-start-view="month" data-max-date="2025-03-14" data-initial-date="2025-03-07" data-date-autoclose="true" data-date-dates-disabled="null" data-date-days-of-week-disabled="null"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group shiny-input-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;label class="control-label" id="mars-camera-label" for="mars-camera-selectized"&gt;Select Camera:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;select id="mars-camera" class="shiny-input-select selectized shiny-bound-input" tabindex="-1" style="display: none;"&gt;</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1">&lt;option value="All" selected="selected"&gt;All&lt;/option&gt;&lt;/select&gt;&lt;div class="shiny-input-select selectize-control single plugin-selectize-plugin-a11y"&gt;&lt;div class="selectize-input items full has-options has-items"&gt;&lt;div class="item" data-value="All"&gt;All&lt;/div&gt;&lt;input type="text" autocomplete="new-password" autofill="no" tabindex="" id="mars-camera-selectized" role="combobox" aria-expanded="false" haspopup="listbox" aria-owns="an4r9joc2h" style="width: 4px;"&gt;&lt;/div&gt;&lt;div class="single selectize-dropdown shiny-input-select plugin-selectize-plugin-a11y" style="display: none;"&gt;&lt;div class="selectize-dropdown-content" tabindex="-1" role="listbox" id="an4r9joc2h"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;script type="application/json" data-for="mars-camera" data-nonempty=""&gt;{"plugins":["selectize-plugin-a11y"]}&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;div class="shiny-html-output col-sm-4 shiny-bound-output" id="mars-total_photos_box" aria-live="polite"&gt;&lt;div class="small-box bg-blue"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;20&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Total Photos&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="icon-large"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;i class="fas fa-camera" role="presentation" aria-label="camera icon"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;div class="shiny-html-output col-sm-4 shiny-bound-output" id="mars-sol_box" aria-live="polite"&gt;&lt;div class="small-box bg-yellow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;4474&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Mars Sol&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="icon-large"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;i class="far fa-sun" role="presentation" aria-label="sun icon"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;div class="shiny-html-output col-sm-4 shiny-bound-output" id="mars-cameras_box" aria-live="polite"&gt;&lt;div class="small-box bg-green"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;3&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Cameras Used&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="icon-large"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;i class="fas fa-video" role="presentation" aria-label="video icon"&gt;&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="mars-photo_gallery" class="shiny-html-output shiny-bound-output" aria-live="polite"&gt;&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ccam/CR0_794673113EDR_F1140288CCAM04473M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>CHEMCAM_RMI</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ccam/CR0_794672368EDR_F1140288CCAM04473M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>CHEMCAM_RMI</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NRB_794672209EDR_F1140288CCAM04473M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_RIGHT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NRB_794652960EDR_F1140288NCAM00551M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_RIGHT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NRB_794652913EDR_F1140288NCAM00551M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_RIGHT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NRB_794652874EDR_F1140288NCAM00551M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_RIGHT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NRB_794652835EDR_F1140288NCAM00551M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_RIGHT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NRB_794652796EDR_F1140288NCAM00551M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_RIGHT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NRB_794652757EDR_F1140288NCAM00551M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_RIGHT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NRB_794652718EDR_F1140288NCAM00551M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_RIGHT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NRB_794652680EDR_F1140288NCAM00551M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_RIGHT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NRB_794652638EDR_F1140288NCAM00556M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_RIGHT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NRB_794652600EDR_F1140288NCAM00556M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_RIGHT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NRB_794652562EDR_F1140288NCAM00556M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_RIGHT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NRB_794652524EDR_F1140288NCAM00556M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_RIGHT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NRB_794652486EDR_F1140288NCAM00556M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_RIGHT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NRB_794652448EDR_F1140288NCAM00556M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_RIGHT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NRB_794652410EDR_F1140288NCAM00556M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_RIGHT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NRB_794652371EDR_F1140288NCAM00556M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_RIGHT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="col-sm-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/04474/opgs/edr/ncam/NLB_794672209EDR_F1140288CCAM04473M_.JPG" class="img-responsive" style="width: 100%; height: auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Camera: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>NAV_LEFT_B</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Earth Date: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>2025-03-07</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Sol: &lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>4474</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div role="tabpanel" class="tab-pane" id="shiny-tab-iss"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="col-sm-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="box box-solid box-primary"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;div class="box-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="box-title"&gt;International Space Station Tracker&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group shiny-input-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;div class="checkbox"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                          </span>&lt;input id="iss-auto_update" type="checkbox" class="shiny-input-checkbox shiny-bound-input" checked="checked"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                          </span>&lt;span&gt;Auto-update position (every 5 seconds)&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;div class="shiny-html-output col-sm-4 shiny-bound-output recalculating" id="iss-latitude_box" aria-live="polite"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;div class="shiny-html-output col-sm-4 shiny-bound-output recalculating" id="iss-longitude_box" aria-live="polite"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;div class="shiny-html-output col-sm-4 shiny-bound-output recalculating" id="iss-velocity_box" aria-live="polite"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="leaflet html-widget html-widget-output shiny-report-size html-fill-item shiny-bound-output recalculating" id="iss-map" style="width:100%;height:600px;" aria-live="polite"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;div class="col-sm-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="box box-solid box-info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                          </span>&lt;div class="box-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="box-title"&gt;Current Location&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                          </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="iss-location_info" class="shiny-text-output shiny-bound-output recalculating" aria-live="polite"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;div class="col-sm-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="box box-solid box-info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                          </span>&lt;div class="box-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="box-title"&gt;Next Pass Predictions&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                          </span>&lt;div class="box-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="iss-pass_predictions" class="shiny-text-output shiny-bound-output recalculating" aria-live="polite"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div role="tabpanel" class="tab-pane" id="shiny-tab-about"&gt;</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1">&lt;meta charset="utf-8"&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"&gt;</p>
+<p class="p1">&lt;title&gt;About Space Exploration Dashboard&lt;/title&gt;</p>
+<p class="p1">&lt;style type="text/css"&gt;</p>
+<p class="p1">body {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-family: sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>max-width: 800px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin: auto;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding: 1em;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>line-height: 1.5;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>box-sizing: border-box;</p>
+<p class="p1">}</p>
+<p class="p1">body, .footnotes, code { font-size: .9em; }</p>
+<p class="p1">li li { font-size: .95em; }</p>
+<p class="p1">*, *:before, *:after {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>box-sizing: inherit;</p>
+<p class="p1">}</p>
+<p class="p1">pre, img { max-width: 100%; }</p>
+<p class="p1">pre, pre:hover {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>white-space: pre-wrap;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>word-break: break-all;</p>
+<p class="p1">}</p>
+<p class="p1">pre code {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>overflow-x: auto;</p>
+<p class="p1">}</p>
+<p class="p1">code { font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace; }</p>
+<p class="p1">:not(pre) &gt; code, code[class] { background-color: #F8F8F8; }</p>
+<p class="p1">code.language-undefined, pre &gt; code:not([class]) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background-color: inherit;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border: 1px solid #eee;</p>
+<p class="p1">}</p>
+<p class="p1">table {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin: auto;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-top: 1px solid #666;</p>
+<p class="p1">}</p>
+<p class="p1">table thead th { border-bottom: 1px solid #ddd; }</p>
+<p class="p1">th, td { padding: 5px; }</p>
+<p class="p1">thead, tfoot, tr:nth-child(even) { background: #eee; }</p>
+<p class="p1">blockquote {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: #666;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding-left: 1em;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-left: 0.5em solid #eee;</p>
+<p class="p1">}</p>
+<p class="p1">hr, .footnotes::before { border: 1px dashed #ddd; }</p>
+<p class="p1">.frontmatter { text-align: center; }</p>
+<p class="p1">#TOC .numbered li { list-style: none; }</p>
+<p class="p1">#TOC .numbered { padding-left: 0; }</p>
+<p class="p1">#TOC .numbered ul { padding-left: 1em; }</p>
+<p class="p1">table, .body h2 { border-bottom: 1px solid #666; }</p>
+<p class="p1">.body .appendix, .appendix ~ h2 { border-bottom-style: dashed; }</p>
+<p class="p1">.footnote-ref a::before { content: "["; }</p>
+<p class="p1">.footnote-ref a::after { content: "]"; }</p>
+<p class="p1">section.footnotes::before {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>content: "";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>max-width: 20em;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">@media print {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 12pt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>max-width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>tr, img { page-break-inside: avoid; }</p>
+<p class="p1">}</p>
+<p class="p1">@media only screen and (min-width: 992px) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>pre { white-space: pre; }</p>
+<p class="p1">}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="frontmatter"&gt;</p>
+<p class="p1">&lt;div class="title"&gt;&lt;h1&gt;About Space Exploration Dashboard&lt;/h1&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;div class="author"&gt;&lt;h2&gt;&lt;/h2&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;div class="date"&gt;&lt;h3&gt;&lt;/h3&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p1">&lt;div class="body"&gt;</p>
+<p class="p1">&lt;h1 id="about-space-exploration-dashboard"&gt;About Space Exploration Dashboard&lt;/h1&gt;</p>
+<p class="p1">&lt;p&gt;This dashboard provides an interactive way to explore space-related data using NASA’s Open APIs. It was built using R Shiny and various other open-source tools.&lt;/p&gt;</p>
+<p class="p1">&lt;h2 id="features"&gt;Features&lt;/h2&gt;</p>
+<p class="p1">&lt;ul&gt;</p>
+<p class="p1">&lt;li&gt;&lt;strong&gt;Astronomy Picture of the Day (APOD)&lt;/strong&gt;: View NASA’s featured space image or video for any date, along with a detailed explanation.&lt;/li&gt;</p>
+<p class="p1">&lt;li&gt;&lt;strong&gt;Near-Earth Objects (NEO) Tracker&lt;/strong&gt;: Monitor and visualize asteroids that pass close to Earth.&lt;/li&gt;</p>
+<p class="p1">&lt;li&gt;&lt;strong&gt;Mars Rover Photos&lt;/strong&gt;: Browse the latest images from Mars rovers.&lt;/li&gt;</p>
+<p class="p1">&lt;li&gt;&lt;strong&gt;ISS Tracker&lt;/strong&gt;: Track the International Space Station’s current location in real-time.&lt;/li&gt;</p>
+<p class="p1">&lt;/ul&gt;</p>
+<p class="p1">&lt;h2 id="data-sources"&gt;Data Sources&lt;/h2&gt;</p>
+<p class="p1">&lt;p&gt;All data is sourced from NASA’s Open APIs:&lt;/p&gt;</p>
+<p class="p1">&lt;ul&gt;</p>
+<p class="p1">&lt;li&gt;&lt;a href="https://api.nasa.gov/"&gt;NASA Open APIs&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1">&lt;li&gt;&lt;a href="https://github.com/nasa/apod-api"&gt;APOD API&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1">&lt;li&gt;&lt;a href="https://neo.jpl.nasa.gov/"&gt;NEO Web Service&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1">&lt;/ul&gt;</p>
+<p class="p1">&lt;h2 id="technical-details"&gt;Technical Details&lt;/h2&gt;</p>
+<p class="p1">&lt;p&gt;This dashboard is built with:&lt;/p&gt;</p>
+<p class="p1">&lt;ul&gt;</p>
+<p class="p1">&lt;li&gt;R Shiny&lt;/li&gt;</p>
+<p class="p1">&lt;li&gt;shinydashboard&lt;/li&gt;</p>
+<p class="p1">&lt;li&gt;leaflet&lt;/li&gt;</p>
+<p class="p1">&lt;li&gt;plotly&lt;/li&gt;</p>
+<p class="p1">&lt;li&gt;httr&lt;/li&gt;</p>
+<p class="p1">&lt;li&gt;and other open-source packages&lt;/li&gt;</p>
+<p class="p1">&lt;/ul&gt;</p>
+<p class="p1">&lt;h2 id="contributing"&gt;Contributing&lt;/h2&gt;</p>
+<p class="p1">&lt;p&gt;This is an open-source project. Contributions are welcome! Visit our GitHub repository to:&lt;/p&gt;</p>
+<p class="p1">&lt;ul&gt;</p>
+<p class="p1">&lt;li&gt;Report issues&lt;/li&gt;</p>
+<p class="p1">&lt;li&gt;Suggest features&lt;/li&gt;</p>
+<p class="p1">&lt;li&gt;Submit pull requests&lt;/li&gt;</p>
+<p class="p1">&lt;/ul&gt;</p>
+<p class="p1">&lt;h2 id="license"&gt;License&lt;/h2&gt;</p>
+<p class="p1">&lt;p&gt;This project is licensed under the MIT License.&lt;/p&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div id="ss-connect-dialog" style="display: none;"&gt;&lt;/div&gt;&lt;div id="ss-overlay" class="ss-gray-out" style="display: none;"&gt;&lt;/div&gt;&lt;div aria-live="assertive" role="log" aria-relevant="additions" aria-atomic="true" style="position: absolute; width: 1px; height: 1px; margin-top: -1px; clip: rect(1px, 1px, 1px, 1px); overflow: hidden;"&gt;&lt;/div&gt;&lt;div aria-live="assertive" role="log" aria-relevant="additions" aria-atomic="true" style="position: absolute; width: 1px; height: 1px; margin-top: -1px; clip: rect(1px, 1px, 1px, 1px); overflow: hidden;"&gt;&lt;/div&gt;&lt;svg id="js-plotly-tester" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute; left: -10000px; top: -10000px; width: 9000px; height: 9000px; z-index: 1;"&gt;&lt;path class="js-reference-point" d="M0,0H1V1H0Z" style="stroke-width: 0; fill: black;"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/body&gt;&lt;/html&gt;</p>
+</body>
+</html>
