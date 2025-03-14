@@ -21,9 +21,6 @@ apodUI <- function(id) {
             max = Sys.Date()
           ),
           
-          # Debug output
-          verbatimTextOutput(ns("debug")),
-          
           # Image display
           uiOutput(ns("image_ui")),
           
@@ -69,16 +66,6 @@ apodServer <- function(id, config) {
         print(paste("Error in APOD API call:", e$message))
         NULL
       })
-    })
-    
-    # Debug output
-    output$debug <- renderPrint({
-      data <- apod_data()
-      if (is.null(data)) {
-        "No data received from API"
-      } else {
-        str(data)
-      }
     })
     
     # Render image
