@@ -194,26 +194,24 @@ dashboardServer <- function(id, config) {
       data <- mars_data()
       req(data)
       
+      # Debug output
+      cat("Mars Data Structure:\n")
+      print(str(data))
+      
       if (length(data$latest_photos) > 0) {
         latest <- data$latest_photos[[1]]
         div(class = "image-container",
-          # Date
-          div(class = "preview-date",
-            format(as.Date(latest$earth_date), "%B %d, %Y")
-          ),
-          # Image
+          style = "height: 280px; /* Debug fixed height */",
+          # Image with max-height
           tags$img(
             src = latest$img_src,
             class = "preview-image",
+            style = "max-height: 260px; /* Debug max-height */",
             alt = "Latest Mars Photo"
           ),
           # Text overlay
           div(class = "preview-text-overlay",
-            h4("Latest from Perseverance"),
-            p(paste(
-              "Camera:", latest$camera$full_name,
-              "• Sol:", latest$sol
-            ))
+            h4(paste("Latest from Perseverance - Sol", latest$sol))
           )
         )
       }
