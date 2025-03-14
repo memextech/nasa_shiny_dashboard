@@ -17,22 +17,9 @@ dashboardUI <- function(id) {
             tags$a(href = "#", onclick = sprintf("$('a[data-value=\"APOD\"]').tab('show');"), 
                   icon("external-link-alt"))
           ),
+          # Content
           div(class = "preview-content",
-            div(class = "loading-container",
-              # Loading spinner
-              conditionalPanel(
-                condition = "!output.apod_ready",
-                div(class = "loading-spinner",
-                  icon("spinner", class = "fa-spin"),
-                  div(class = "loading-text", "Loading image...")
-                ),
-                ns = ns
-              ),
-              # Content
-              div(id = ns("apod_content"), class = "content-fade",
-                uiOutput(ns("apod_preview"))
-              )
-            )
+            uiOutput(ns("apod_preview"))
           )
         )
       ),
@@ -173,30 +160,30 @@ dashboardServer <- function(id, config) {
       data <- apod_data()
       req(data)
       
+      # Debug output
+      cat("APOD Data Structure:\n")
+      print(str(data))
+      
       if (data$media_type == "image") {
         div(class = "image-container",
-          # Date
-          div(class = "preview-date",
-            format(Sys.Date(), "%B %d, %Y")
-          ),
-          # Image
+          style = "height: 280px; /* Debug fixed height */",
+          # Image with max-height
           tags$img(
             src = data$url,
             class = "preview-image",
+            style = "max-height: 260px; /* Debug max-height */",
             alt = data$title
           ),
           # Text overlay
           div(class = "preview-text-overlay",
-            h4(data$title),
-            p(data$explanation)
+            h4(data$title)
           )
         )
       } else {
         div(class = "image-container",
-          div(style = "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;",
-            icon("video", style = "font-size: 48px; margin-bottom: 15px;"),
-            h4("Video Content"),
-            p("Click to view today's astronomy video")
+          div(style = "text-align: center;",
+            icon("video"),
+            h4("Video Content")
           )
         )
       }

@@ -114,17 +114,19 @@ body {
 
 /* Dashboard tiles */
 .dashboard-tile {
-    height: 400px;
+    height: 350px;
     margin: 0 0 20px 0;
     padding: 15px;
     background-color: #fff;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
 }
 
 .dashboard-tile h3 {
-    margin: 0 0 15px 0;
+    margin: 0;
     padding: 0 0 10px 0;
     border-bottom: 1px solid #eee;
     font-size: 16px;
@@ -133,6 +135,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex: 0 0 auto;  /* Don't grow or shrink */
 }
 
 .dashboard-tile h3 a {
@@ -142,11 +145,12 @@ body {
 
 /* Content area */
 .preview-content {
-    height: 320px;
+    flex: 1;  /* Take remaining space */
     position: relative;
-    margin: 0;
+    margin: 10px 0 0 0;
     padding: 0;
     overflow: hidden;
+    min-height: 0;  /* Allow flex shrinking */
 }
 
 /* Image container */
