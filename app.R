@@ -36,7 +36,8 @@ ui <- fluidPage(
     
     tabPanel(
       "Dashboard",
-      icon = icon("dashboard")
+      icon = icon("dashboard"),
+      dashboardUI("dashboard")
     ),
     
     tabPanel(
@@ -74,6 +75,7 @@ ui <- fluidPage(
 # Server
 server <- function(input, output, session) {
   # Call module servers
+  dashboardServer("dashboard", config)
   apodServer("apod", config)
   neoTrackerServer("neo", config)
   marsRoverServer("mars", config)

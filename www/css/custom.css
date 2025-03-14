@@ -85,6 +85,27 @@ body {
     margin: 0;
 }
 
+/* Dashboard links */
+.well h3 a {
+    color: #1a237e;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.well h3 a:hover {
+    opacity: 1;
+}
+
+/* Preview images */
+.img-preview {
+    max-height: 300px;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+    object-fit: cover;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .navbar-nav {
