@@ -98,21 +98,8 @@ dashboardUI <- function(id) {
                   icon("external-link-alt"))
           ),
           div(class = "preview-content",
-            div(class = "loading-container",
-              # Loading spinner
-              conditionalPanel(
-                condition = "!output.iss_ready",
-                div(class = "loading-spinner",
-                  icon("spinner", class = "fa-spin"),
-                  div(class = "loading-text", "Loading ISS location...")
-                ),
-                ns = ns
-              ),
-              # Content
-              div(id = ns("iss_content"), class = "content-fade",
-                leafletOutput(ns("iss_preview"), height = "100%")
-              )
-            )
+            # Just the map - no wrapping that breaks it
+            leafletOutput(ns("iss_preview"), height = "280px")
           )
         )
       )
